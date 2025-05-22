@@ -62,13 +62,28 @@ There's also a SQL analytics endpoint, where you can connect from any tool.
 To create a new query, use the New SQL query button in the menu. You can author and run your T-SQL queries here. In the example below we're creating a new view for analysts to use for reporting in Power BI.
 ![create-view.png](https://learn.microsoft.com/en-gb/training/wwl/get-started-data-warehouse/media/create-view.png)
 
-# Query data using the Visual query editor 
-The visual query editor provides an experience similar to the [Power Query online diagram view](https://learn.microsoft.com/en-us/power-query/diagram-view)
-Use the *_New visual query_* button to create a new query.
+# Query data using the Visual query editor
 
-Drag a table from your data warehouse onto the canvas to get started. You can then use the _*Transform*_ menu at the top of the screen to add:
+The visual query editor provides an experience similar to the [Power Query online diagram view](https://learn.microsoft.com/en-us/power-query/diagram-view)
+Use the **New visual query** button to create a new query.
+
+Drag a table from your data warehouse onto the canvas to get started. You can then use the **Transform** menu at the top of the screen to add:
+
 - columns
 - filters
-- other transformations to your  query. 
+- other transformations to your  query.
 You can also use the ( *+* ) button on the visual itself to perform similar transformations:
 ![visual-query.png](https://learn.microsoft.com/en-gb/training/wwl/get-started-data-warehouse/media/visual-query.png)
+
+# Prepart data for analysis and reporting
+
+A semantic model defines the relationships between the different tables in the semantic model, the rules for how data is aggregated and summarized, and the calculations or measures that are used to derive insights from the data. These relationships and measures are included in the semantic model, which is then used to create reports in Power BI.
+
+You can easily switch between the Data, Query, and Model view Fabric using the menu in the bottom left corner of the screen. The Data view shows the tables in the semantic model, the Query view shows the SQL queries that are used to create the semantic model, and the Model view shows the semantic model.
+
+*TIP*
+*See [Analyzre daya in a relational data warehouse](https://learn.microsoft.com/en-us/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads/) to learn more about data models and data warehouse schema.*
+
+# Build relationships
+
+Relationships allow you to connect tables in the semantic model. Create relationships between tables in your data warehouse using a click-and-drag interface in Fabric in the Model view.
