@@ -12,7 +12,7 @@ Unlike a dedicated SQL pool in Synapse Analytics, a warehouse in Microsoft Fabri
 
 ETL provides the foundation for data analytics and data warehouse workstreams. Let's review some aspects of data manipulation in an ETL process.
 
-![table1.jpeg](course-list/D-700/Fabric_Data_Engineer/python_scripts/Module7/table1.jpeg)
+![table1.jpeg](table1.jpeg)
 
 All these steps in the ETL process can run in parallel depending on the scenario. As soon as some data is ready, it's loaded without waiting for the previous steps to be completed.
 
