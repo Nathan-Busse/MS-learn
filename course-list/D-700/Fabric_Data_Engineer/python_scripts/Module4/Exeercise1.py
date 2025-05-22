@@ -1,4 +1,8 @@
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType, FloatType
+from pyspark.sql import SparkSession
+
+def spark():
+    return SparkSession.builder.appName("DeltaTableExample").getOrCreate()
 
 # Create the schema for the table
 orderSchema = StructType([
