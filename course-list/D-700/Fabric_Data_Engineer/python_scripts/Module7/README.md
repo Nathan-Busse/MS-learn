@@ -35,3 +35,11 @@ Stage your data
 You might have to build and work with auxiliary objects involved in a load operation, such as tables, stored procedures, and functions. These auxiliary objects are commonly known as staging. Staging objects act as temporary storage and transformation areas. They can either share resources with a data warehouse or reside in their own storage area.
 
 Staging serves as an abstraction layer, simplifying and facilitating the load operation to the final tables in the data warehouse.
+
+# Summary
+There’s no one-size-fits-all solution for loading your data. The best approach depends on the specifics of your business requirement and the question you’re trying to answer.
+
+When it comes to loading data in a data warehouse, there are several considerations to keep in mind.
+![table2.jpeg](table2.jpeg)
+
+[Module victoey](https://learn.microsoft.com/api/achievements/share/en-gb/NathanBusse-2561/8ZMEAPMW?sharingId=A06D9EE30C453065)
