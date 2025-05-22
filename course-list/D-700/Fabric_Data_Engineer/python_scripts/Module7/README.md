@@ -1,4 +1,5 @@
 # Introduction
+
 [Microsoft Fabric Data Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/) is a complete platform for data, analytics, and AI (Artificial Intelligence). It refers to the process of storing, organizing, and managing large volumes of structured and semi-structured data.
 
 Data warehouse in Microsoft Fabric is powered up with Synapse Analytics by offering a rich set of features that make it easier to manage and analyze data. It includes advanced query processing capabilities, and supports the full transactional T-SQL capabilities like an enterprise data warehouse.
@@ -7,135 +8,135 @@ Unlike a dedicated SQL pool in Synapse Analytics, a warehouse in Microsoft Fabri
 
 ![https://learn.microsoft.com/en-gb/training/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/media/1-access-onelake-data-other-tools.png](https://learn.microsoft.com/en-gb/training/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/media/1-access-onelake-data-other-tools.png#lightbox)
 
-# Understand the ETL (Extract, Transform, and Load) process
-ETL provides the foundation for data analytics and data warehouse workstreams. Let's review some aspects of data manipulation in an ETL process.
+## Understand the ETL (Extract, Transform, and Load) process
 
+ETL provides the foundation for data analytics and data warehouse workstreams. Let's review some aspects of data manipulation in an ETL process.
 
 ~~~html
 
 <!DOCTYPE html>
 <!-- saved from url=(0112)https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction -->
 <html class="layout layout-single moduleunit show-breadcrumb default-focus theme-dark" lang="en-us" dir="ltr" data-authenticated="true" data-auth-status-determined="true" data-target="docs" x-ms-format-detection="none" style="--window-inner-height: 572px !important; --atlas-header-height: 108px !important; --atlas-footer-height: 174px !important; --atlas-header-visible-height: 0px !important; --atlas-footer-visible-height: 0px !important; left: 0px; right: 0px; top: -960px; position: fixed;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<title>Introduction - Training | Microsoft Learn</title>
-			
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta name="color-scheme" content="light dark">
+   <title>Introduction - Training | Microsoft Learn</title>
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="color-scheme" content="light dark">
 
-			<meta name="description" content="Introduction">
-			<link rel="canonical" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction"> 
+   <meta name="description" content="Introduction">
+   <link rel="canonical" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction"> 
 
-			<!-- Non-customizable open graph and sharing-related metadata -->
-			<meta name="twitter:card" content="summary_large_image">
-			<meta name="twitter:site" content="@MicrosoftLearn">
-			<meta property="og:type" content="website">
-			<meta property="og:image:alt" content="Microsoft Learn">
-			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png">
-			<!-- Page specific open graph and sharing-related metadata -->
-			<meta property="og:title" content="Introduction - Training">
-			<meta property="og:url" content="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction">
-			<meta property="og:description" content="Introduction">
-			<meta name="platform_id" content="147897eb-2089-fcb0-1f3f-c018888774b0"> 
-			<meta name="locale" content="en-gb">
-			 <meta name="adobe-target" content="true">
-			<meta name="uhfHeaderId" content="MSDocsHeader-Learn">
+   <!-- Non-customizable open graph and sharing-related metadata -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:site" content="@MicrosoftLearn">
+   <meta property="og:type" content="website">
+   <meta property="og:image:alt" content="Microsoft Learn">
+   <meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png">
+   <!-- Page specific open graph and sharing-related metadata -->
+   <meta property="og:title" content="Introduction - Training">
+   <meta property="og:url" content="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction">
+   <meta property="og:description" content="Introduction">
+   <meta name="platform_id" content="147897eb-2089-fcb0-1f3f-c018888774b0"> 
+   <meta name="locale" content="en-gb">
+    <meta name="adobe-target" content="true">
+   <meta name="uhfHeaderId" content="MSDocsHeader-Learn">
 
-			<meta name="page_type" content="learn">
+   <meta name="page_type" content="learn">
 
-			<!--page specific meta tags-->
-			
+   <!--page specific meta tags-->
+   
 
-			<!-- custom meta tags -->
-			
-		<meta name="uid" content="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction">
-	
-		<meta name="schema" content="ModuleUnit">
-	
-		<meta name="page_kind" content="unit">
-	
-		<meta name="azure_sandbox" content="false">
-	
-		<meta name="sandbox" content="false">
-	
-		<meta name="breadcrumb_path" content="/learn/breadcrumb/toc.json">
-	
-		<meta name="feedback_system" content="Standard">
-	
-		<meta name="clicktale" content="true">
-	
-		<meta name="prefetch-feature-rollout" content="true">
-	
-		<meta name="localization_scopes" content="ja-jp">
-	
-		<meta name="localization_scopes" content="ko-kr">
-	
-		<meta name="localization_scopes" content="zh-cn">
-	
-		<meta name="localization_scopes" content="zh-tw">
-	
-		<meta name="ms.date" content="2025-05-15T00:00:00Z">
-	
-		<meta name="author" content="JulianePadrao">
-	
-		<meta name="ms.author" content="jupadrao">
-	
-		<meta name="ms.topic" content="unit">
-	
-		<meta name="ms.custom" content="build-2023">
-	
-		<meta name="ms.custom" content="build-2023-dataai">
-	
-		<meta name="ms.custom" content="build-2023-fabric">
-	
-		<meta name="document_id" content="e1378b11-8268-565f-bf64-a52e63962259">
-	
-		<meta name="document_version_independent_id" content="bd6d23ec-8f21-b331-9372-050af028a417">
-	
-		<meta name="updated_at" content="2025-05-15T23:05:00Z">
-	
-		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/learn-pr/blob/live/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
-	
-		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/learn-pr/blob/8e353df30b2ea13d07d21c194f6e5bd055c908da/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
-	
-		<meta name="git_commit_id" content="8e353df30b2ea13d07d21c194f6e5bd055c908da">
-	
-		<meta name="site_name" content="Docs">
-	
-		<meta name="depot_name" content="Docs.learn-pr">
-	
-		<meta name="unit_completion_type" content="view">
-	
-		<meta name="feedback_product_url" content="">
-	
-		<meta name="feedback_help_link_type" content="">
-	
-		<meta name="feedback_help_link_url" content="">
-	
-		<meta name="ROBOTS" content="noindex">
-	
-		<meta name="asset_id" content="modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction">
-	
-		<meta name="moniker_range_name" content="">
-	
-		<meta name="item_type" content="Content">
-	
-		<meta name="source_path" content="learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
-	
-		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/learn/blob/main/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
-	 
+   <!-- custom meta tags -->
+   
+  <meta name="uid" content="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction">
+ 
+  <meta name="schema" content="ModuleUnit">
+ 
+  <meta name="page_kind" content="unit">
+ 
+  <meta name="azure_sandbox" content="false">
+ 
+  <meta name="sandbox" content="false">
+ 
+  <meta name="breadcrumb_path" content="/learn/breadcrumb/toc.json">
+ 
+  <meta name="feedback_system" content="Standard">
+ 
+  <meta name="clicktale" content="true">
+ 
+  <meta name="prefetch-feature-rollout" content="true">
+ 
+  <meta name="localization_scopes" content="ja-jp">
+ 
+  <meta name="localization_scopes" content="ko-kr">
+ 
+  <meta name="localization_scopes" content="zh-cn">
+ 
+  <meta name="localization_scopes" content="zh-tw">
+ 
+  <meta name="ms.date" content="2025-05-15T00:00:00Z">
+ 
+  <meta name="author" content="JulianePadrao">
+ 
+  <meta name="ms.author" content="jupadrao">
+ 
+  <meta name="ms.topic" content="unit">
+ 
+  <meta name="ms.custom" content="build-2023">
+ 
+  <meta name="ms.custom" content="build-2023-dataai">
+ 
+  <meta name="ms.custom" content="build-2023-fabric">
+ 
+  <meta name="document_id" content="e1378b11-8268-565f-bf64-a52e63962259">
+ 
+  <meta name="document_version_independent_id" content="bd6d23ec-8f21-b331-9372-050af028a417">
+ 
+  <meta name="updated_at" content="2025-05-15T23:05:00Z">
+ 
+  <meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/learn-pr/blob/live/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
+ 
+  <meta name="gitcommit" content="https://github.com/MicrosoftDocs/learn-pr/blob/8e353df30b2ea13d07d21c194f6e5bd055c908da/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
+ 
+  <meta name="git_commit_id" content="8e353df30b2ea13d07d21c194f6e5bd055c908da">
+ 
+  <meta name="site_name" content="Docs">
+ 
+  <meta name="depot_name" content="Docs.learn-pr">
+ 
+  <meta name="unit_completion_type" content="view">
+ 
+  <meta name="feedback_product_url" content="">
+ 
+  <meta name="feedback_help_link_type" content="">
+ 
+  <meta name="feedback_help_link_url" content="">
+ 
+  <meta name="ROBOTS" content="noindex">
+ 
+  <meta name="asset_id" content="modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction">
+ 
+  <meta name="moniker_range_name" content="">
+ 
+  <meta name="item_type" content="Content">
+ 
+  <meta name="source_path" content="learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
+ 
+  <meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/learn/blob/main/learn-pr/wwl-data-ai/load-data-into-microsoft-fabric-data-warehouse/1-introduction.yml">
+  
 
-			<!-- assets and js globals -->
-			<link rel="stylesheet" href="./Introduction - Training _ Microsoft Learn_files/site-ltr.css">
-			<link rel="preconnect" href="https://mscom.demdex.net/" crossorigin="">
-						<link rel="dns-prefetch" href="https://target.microsoft.com/">
-						<link rel="dns-prefetch" href="https://microsoftmscompoc.tt.omtrdc.net/">
-						<link rel="preload" as="script" href="./Introduction - Training _ Microsoft Learn_files/at.js" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous" id="adobe-target-script" type="application/javascript">
-			<script src="./Introduction - Training _ Microsoft Learn_files/wcp-consent.js"></script>
-			<script src="./Introduction - Training _ Microsoft Learn_files/ms.jsll-4.min.js"></script>
-			<script src="./Introduction - Training _ Microsoft Learn_files/deprecation.js"></script>
+   <!-- assets and js globals -->
+   <link rel="stylesheet" href="./Introduction - Training _ Microsoft Learn_files/site-ltr.css">
+   <link rel="preconnect" href="https://mscom.demdex.net/" crossorigin="">
+      <link rel="dns-prefetch" href="https://target.microsoft.com/">
+      <link rel="dns-prefetch" href="https://microsoftmscompoc.tt.omtrdc.net/">
+      <link rel="preload" as="script" href="./Introduction - Training _ Microsoft Learn_files/at.js" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous" id="adobe-target-script" type="application/javascript">
+   <script src="./Introduction - Training _ Microsoft Learn_files/wcp-consent.js"></script>
+   <script src="./Introduction - Training _ Microsoft Learn_files/ms.jsll-4.min.js"></script>
+   <script src="./Introduction - Training _ Microsoft Learn_files/deprecation.js"></script>
 
-			<!-- msdocs global object -->
-			<script id="msdocs-script">
-		var msDocs = {
+   <!-- msdocs global object -->
+   <script id="msdocs-script">
+  var msDocs = {
   "environment": {
     "accessLevel": "online",
     "azurePortalHostname": "portal.azure.com",
@@ -176,17 +177,17 @@ ETL provides the foundation for data analytics and data warehouse workstreams. L
   },
   "functions": {}
 };;
-	</script>
+ </script>
 
-			<!-- base scripts, msdocs global should be before this -->
-			
-				<script src="./Introduction - Training _ Microsoft Learn_files/index-learner-experience.js"></script><style></style>
-			
-			
+   <!-- base scripts, msdocs global should be before this -->
+   
+    <script src="./Introduction - Training _ Microsoft Learn_files/index-learner-experience.js"></script><style></style>
+   
+   
 
-			<!-- json-ld -->
-			
-		<link rel="preload" as="image" href="https://learn.microsoft.com/en-us/media/ask-learn/meet-ask-learn-base.png"><link rel="preload" as="image" href="https://learn.microsoft.com/en-us/media/ask-learn/check-for-accuracy-base.png"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+   <!-- json-ld -->
+   
+  <link rel="preload" as="image" href="https://learn.microsoft.com/en-us/media/ask-learn/meet-ask-learn-base.png"><link rel="preload" as="image" href="https://learn.microsoft.com/en-us/media/ask-learn/check-for-accuracy-base.png"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
 .CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
 .CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
 .CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
@@ -576,18 +577,18 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
   src: url("https://learn.microsoft.com/static/third-party/MathJax/3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
 }
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"name":"Learn","position":1,"@type":"ListItem","item":"/en-gb/"},{"name":"Training","position":2,"@type":"ListItem","item":"/en-gb/training/"},{"name":"Browse","position":3,"@type":"ListItem","item":"/en-gb/training/browse/"},{"name":"Implement a data warehouse with Microsoft Fabric","position":4,"@type":"ListItem","item":"/en-gb/training/paths/work-with-data-warehouses-using-microsoft-fabric/"},{"name":"Load data into a Microsoft Fabric data warehouse","position":5,"@type":"ListItem","item":"/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/"}]}</script></head>
-	
-			<body id="body" data-bi-name="body" class="layout-body " lang="en-gb" dir="ltr"><span tabindex="0" class="modal-tab-sentinel"></span><div data-bi-name="modal"><div tabindex="-1" role="dialog" aria-modal="true" class="modal has-default-focus visibility-hidden-visual-diff is-active" data-test-id="modal-container"><!----><div class="modal-background modal-close"></div>
-				<div><!----> <div class="modal-card modal-card-full fill-mobile" id="expand-table-modal">
-		<div class="modal-card-head padding-xxs buttons buttons-right margin-bottom-none">
-			<div><!----> <button data-autofocus="" class="modal-close button button-clear button-sm margin-bottom-none display-flex gap-xxs">
-		<span class="icon" aria-hidden="true">
-			<span class="docon docon-collapse color-primary"></span>
-		</span>
-		<span><!---->Collapse table<!----></span>
-	</button><!----></div>
-		</div>
-		<div class="modal-content margin-none margin-xs-tablet content"><!----><div class="has-inner-focus"><table aria-label="Understand the ETL (Extract, Transform, and Load) process" class="table">
+ 
+   <body id="body" data-bi-name="body" class="layout-body " lang="en-gb" dir="ltr"><span tabindex="0" class="modal-tab-sentinel"></span><div data-bi-name="modal"><div tabindex="-1" role="dialog" aria-modal="true" class="modal has-default-focus visibility-hidden-visual-diff is-active" data-test-id="modal-container"><!----><div class="modal-background modal-close"></div>
+    <div><!----> <div class="modal-card modal-card-full fill-mobile" id="expand-table-modal">
+  <div class="modal-card-head padding-xxs buttons buttons-right margin-bottom-none">
+   <div><!----> <button data-autofocus="" class="modal-close button button-clear button-sm margin-bottom-none display-flex gap-xxs">
+  <span class="icon" aria-hidden="true">
+   <span class="docon docon-collapse color-primary"></span>
+  </span>
+  <span><!---->Collapse table<!----></span>
+ </button><!----></div>
+  </div>
+  <div class="modal-content margin-none margin-xs-tablet content"><!----><div class="has-inner-focus"><table aria-label="Understand the ETL (Extract, Transform, and Load) process" class="table">
 <thead>
 <tr>
 <th></th>
@@ -613,1897 +614,1897 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 </tr>
 </tbody>
 </table></div><!----></div>
-	</div><!----></div> <!----></div></div><span tabindex="0" class="modal-tab-sentinel"></span>
-				<header class="layout-body-header">
-		<div class="header-holder has-default-focus">
-			
-		<a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#main" style="z-index: 1070" class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body">
-			Skip to main content
-		</a>
-	
+ </div><!----></div> <!----></div></div><span tabindex="0" class="modal-tab-sentinel"></span>
+    <header class="layout-body-header">
+  <div class="header-holder has-default-focus">
+   
+  <a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#main" style="z-index: 1070" class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body">
+   Skip to main content
+  </a>
+ 
 
-			<div hidden="" id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
-			<!-- Unsupported browser warning -->
-			<div id="unsupported-browser" style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;" hidden="">
-				<div style="max-width: 800px; margin: 0 auto;">
-					<p style="font-size: 24px">This browser is no longer supported.</p>
-					<p style="font-size: 16px; margin-top: 16px;">
-						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
-					</p>
-					<div style="margin-top: 12px;">
-						<a href="https://go.microsoft.com/fwlink/p/?LinkID=2092881" style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;">
-							Download Microsoft Edge
-						</a>
-						<a href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge" style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;">
-							More info about Internet Explorer and Microsoft Edge
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- site header -->
-			<header id="ms--site-header" data-test-id="site-header-wrapper" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
-				<div id="ms--mobile-nav" class="site-header display-none-tablet padding-inline-none gap-none" data-bi-name="mobile-header" data-test-id="mobile-header"><!---->
-		<div id="ms--site-header-hamburger" data-test-id="site-header-hamburger">
-			<button type="button" class="button button-clear inner-focus" data-test-id="mobile-nav-open-button" data-bi-name="mobile-nav-open-button" title="Global navigation" aria-label="Global navigation">
-				<span class="icon" aria-hidden="true">
-					<span class="docon docon-menu"></span>
-				</span>
-			</button>
-		</div>
+   <div hidden="" id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+   <!-- Unsupported browser warning -->
+   <div id="unsupported-browser" style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;" hidden="">
+    <div style="max-width: 800px; margin: 0 auto;">
+     <p style="font-size: 24px">This browser is no longer supported.</p>
+     <p style="font-size: 16px; margin-top: 16px;">
+      Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+     </p>
+     <div style="margin-top: 12px;">
+      <a href="https://go.microsoft.com/fwlink/p/?LinkID=2092881" style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;">
+       Download Microsoft Edge
+      </a>
+      <a href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge" style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;">
+       More info about Internet Explorer and Microsoft Edge
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- site header -->
+   <header id="ms--site-header" data-test-id="site-header-wrapper" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+    <div id="ms--mobile-nav" class="site-header display-none-tablet padding-inline-none gap-none" data-bi-name="mobile-header" data-test-id="mobile-header"><!---->
+  <div id="ms--site-header-hamburger" data-test-id="site-header-hamburger">
+   <button type="button" class="button button-clear inner-focus" data-test-id="mobile-nav-open-button" data-bi-name="mobile-nav-open-button" title="Global navigation" aria-label="Global navigation">
+    <span class="icon" aria-hidden="true">
+     <span class="docon docon-menu"></span>
+    </span>
+   </button>
+  </div>
 
-		<!-- Brand -->
-		
-		<a class="site-header-brand" itemprop="url" href="https://learn.microsoft.com/en-gb/" data-bi-name="site-header-brand-learn-mobile" data-test-id="site-header-brand-mobile">
-			<span><!---->Learn<!----></span>
-		</a>
-	
+  <!-- Brand -->
+  
+  <a class="site-header-brand" itemprop="url" href="https://learn.microsoft.com/en-gb/" data-bi-name="site-header-brand-learn-mobile" data-test-id="site-header-brand-mobile">
+   <span><!---->Learn<!----></span>
+  </a>
+ 
 
-		<!-- MS logo -->
-		
-				<a href="https://www.microsoft.com/" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo-mobile" data-test-id="site-header-microsoft-logo-mobile" class="site-header-logo site-header-logo-centered">
-					
-		<svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
-			<path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
-			<path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
-			<path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
-			<path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
-		</svg>
-	
-				</a>
-		  
+  <!-- MS logo -->
+  
+    <a href="https://www.microsoft.com/" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo-mobile" data-test-id="site-header-microsoft-logo-mobile" class="site-header-logo site-header-logo-centered">
+     
+  <svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
+   <path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+   <path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+   <path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+   <path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+  </svg>
+ 
+    </a>
+    
 
-		<!-- Search -->
-		
-		<search-expander data-test-id="site-header-search-mobile" class="display-flex flex-grow-1 justify-content-flex-end">
-			<div hidden="" id="ms--site-header-search-mobile" class="display-flex align-items-center gap-xxs width-full padding-left-xxs">
-				
-		<form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form-mobile" data-bi-name="site-header-search-form-mobile" name="site-header-search-form-mobile" aria-label="Search" action="https://learn.microsoft.com/en-gb/search/">
-			<div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
-			<div class="field-body control ">
-				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input-mobile" data-test-id="site-header-search-autocomplete-input-mobile" class="autocomplete-input input 
-						
-						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-1-listbox" aria-controls="ax-1-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-mobile-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input-mobile" pattern=".*">
+  <!-- Search -->
+  
+  <search-expander data-test-id="site-header-search-mobile" class="display-flex flex-grow-1 justify-content-flex-end">
+   <div hidden="" id="ms--site-header-search-mobile" class="display-flex align-items-center gap-xxs width-full padding-left-xxs">
+    
+  <form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form-mobile" data-bi-name="site-header-search-form-mobile" name="site-header-search-form-mobile" aria-label="Search" action="https://learn.microsoft.com/en-gb/search/">
+   <div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+   <div class="field-body control ">
+    <input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input-mobile" data-test-id="site-header-search-autocomplete-input-mobile" class="autocomplete-input input 
+      
+      width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-1-listbox" aria-controls="ax-1-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-mobile-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input-mobile" pattern=".*">
 
-				
+    
 
-				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+    <span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
 
-				<span hidden="" id="ms--site-header-search-autocomplete-input-mobile-description">
-					Suggestions will filter as you type
-				</span>
-			</div>
+    <span hidden="" id="ms--site-header-search-autocomplete-input-mobile-description">
+     Suggestions will filter as you type
+    </span>
+   </div>
 
-			<ul role="listbox" id="ax-1-listbox" data-test-id="site-header-search-autocomplete-input-mobile-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
-				
-				
-			</ul>
-		<!----></div>
-			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
-			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
-			<input name="category" hidden="" value="Training">
-			
-			
-		</form>
-	
-				<button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Close search" data-bi-name="site-header-search-close-mobile" data-test-id="site-header-search-close-mobile">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-navigate-close"></span>
-					</span>
-				</button>
-			</div>
-			<button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Open search" data-bi-name="site-header-search-open-mobile" data-test-id="site-header-search-open-mobile">
-				<span class="icon" aria-hidden="true">
-					<span class="docon docon-search"></span>
-				</span>
-			</button>
-		</search-expander>
-	
+   <ul role="listbox" id="ax-1-listbox" data-test-id="site-header-search-autocomplete-input-mobile-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+    
+    
+   </ul>
+  <!----></div>
+   <!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+   <button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+   <input name="category" hidden="" value="Training">
+   
+   
+  </form>
+ 
+    <button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Close search" data-bi-name="site-header-search-close-mobile" data-test-id="site-header-search-close-mobile">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-navigate-close"></span>
+     </span>
+    </button>
+   </div>
+   <button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Open search" data-bi-name="site-header-search-open-mobile" data-test-id="site-header-search-open-mobile">
+    <span class="icon" aria-hidden="true">
+     <span class="docon docon-search"></span>
+    </span>
+   </button>
+  </search-expander>
+ 
 
-		<!-- User avatar/Sign in -->
-		<!---->
-		<a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-in-mobile" data-test-id="site-header-sign-in-mobile" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated margin-right-xs margin-left-xxs">
-			Sign in
-		</a>
-	 
-		<details data-bi-name="site-header-user-mobile" class="popover popover-right auth-status-determined authenticated margin-right-xs margin-left-xxs">
-			<summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user-mobile">
-				<div class="persona persona-sm">
-					<figure class="persona-avatar">
-						<img alt="" data-profile-property="avatarThumbnailUrl" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
-					</figure>
-				</div>
-			</summary>
-			<div class="popover-content width-auto" data-bi-name="site-header-user-menu">
-				<div class="persona persona-sm">
-					<figure class="persona-avatar">
-						<img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name-mobile" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
-					</figure>
-					<div class="persona-details" data-test-id="persona-detail-mobile">
-						<p class="persona-name" data-profile-property="displayName" id="ms--user-display-name-mobile">Nathan G. Busse</p>
-						<p data-profile-property="upn">bussenathan@icloud.com</p>
-					</div>
-				</div>
-				<ul class="padding-block-xs">
-					<li class="padding-bottom-xs">
-						<a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-gb/users/me/activity/">
-							Profile
-						</a>
-					</li>
-					<li>
-						<a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-gb/users/me/settings/">
-							Settings
-						</a>
-					</li>
-				</ul>
-				<div class="border-top padding-top-xs">
-					<a class="docs-sign-out font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-out-mobile" data-test-id="site-header-user-sign-out-mobile">
-						Sign out
-					</a>
-				</div>
-			</div>
-		</details>
-	<!---->
-	<!----></div>
-				<div id="ms--primary-nav" class="site-header display-none display-flex-tablet" data-bi-name="L1-header" data-test-id="primary-header"><!---->
-		<!-- MS logo -->
-		
-				<a href="https://www.microsoft.com/" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo" data-test-id="site-header-microsoft-logo" class="site-header-logo ">
-					
-		<svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
-			<path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
-			<path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
-			<path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
-			<path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
-		</svg>
-	
-				</a>
-		  
+  <!-- User avatar/Sign in -->
+  <!---->
+  <a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-in-mobile" data-test-id="site-header-sign-in-mobile" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated margin-right-xs margin-left-xxs">
+   Sign in
+  </a>
+  
+  <details data-bi-name="site-header-user-mobile" class="popover popover-right auth-status-determined authenticated margin-right-xs margin-left-xxs">
+   <summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user-mobile">
+    <div class="persona persona-sm">
+     <figure class="persona-avatar">
+      <img alt="" data-profile-property="avatarThumbnailUrl" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
+     </figure>
+    </div>
+   </summary>
+   <div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+    <div class="persona persona-sm">
+     <figure class="persona-avatar">
+      <img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name-mobile" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
+     </figure>
+     <div class="persona-details" data-test-id="persona-detail-mobile">
+      <p class="persona-name" data-profile-property="displayName" id="ms--user-display-name-mobile">Nathan G. Busse</p>
+      <p data-profile-property="upn">bussenathan@icloud.com</p>
+     </div>
+    </div>
+    <ul class="padding-block-xs">
+     <li class="padding-bottom-xs">
+      <a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-gb/users/me/activity/">
+       Profile
+      </a>
+     </li>
+     <li>
+      <a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-gb/users/me/settings/">
+       Settings
+      </a>
+     </li>
+    </ul>
+    <div class="border-top padding-top-xs">
+     <a class="docs-sign-out font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-out-mobile" data-test-id="site-header-user-sign-out-mobile">
+      Sign out
+     </a>
+    </div>
+   </div>
+  </details>
+ <!---->
+ <!----></div>
+    <div id="ms--primary-nav" class="site-header display-none display-flex-tablet" data-bi-name="L1-header" data-test-id="primary-header"><!---->
+  <!-- MS logo -->
+  
+    <a href="https://www.microsoft.com/" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo" data-test-id="site-header-microsoft-logo" class="site-header-logo ">
+     
+  <svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
+   <path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+   <path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+   <path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+   <path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+  </svg>
+ 
+    </a>
+    
 
-		<!-- Divider -->
-		<div class="site-header-divider"></div>
+  <!-- Divider -->
+  <div class="site-header-divider"></div>
 
-		<!-- Brand -->
-		
-		<a class="site-header-brand" itemprop="url" href="https://learn.microsoft.com/en-gb/" data-bi-name="site-header-brand-learn" data-test-id="site-header-brand">
-			<span><!---->Learn<!----></span>
-		</a>
-	
+  <!-- Brand -->
+  
+  <a class="site-header-brand" itemprop="url" href="https://learn.microsoft.com/en-gb/" data-bi-name="site-header-brand-learn" data-test-id="site-header-brand">
+   <span><!---->Learn<!----></span>
+  </a>
+ 
 
-		<div id="ms--search-expander-wrapper" class="display-flex justify-content-space-between flex-grow-1 align-items-center overflow-x-hidden height-full">
-			<!-- Main Nav -->
-			
-		<overflow-menu class="align-self-stretch" style="display: block; overflow: hidden; width: 100%;">
-			<nav class="site-header-nav" data-bi-name="primary-nav" data-overflow-menu-container="" aria-label="Global" style="visibility: visible; overflow: hidden;">
-				<button type="button" data-overflow-menu-prev-button="" data-bi-name="site-header-btn-prev" class="button button-clear button-sm inner-focus" hidden="" aria-label="Previous">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-chevron-left-light"></span>
-					</span>
-				</button>
+  <div id="ms--search-expander-wrapper" class="display-flex justify-content-space-between flex-grow-1 align-items-center overflow-x-hidden height-full">
+   <!-- Main Nav -->
+   
+  <overflow-menu class="align-self-stretch" style="display: block; overflow: hidden; width: 100%;">
+   <nav class="site-header-nav" data-bi-name="primary-nav" data-overflow-menu-container="" aria-label="Global" style="visibility: visible; overflow: hidden;">
+    <button type="button" data-overflow-menu-prev-button="" data-bi-name="site-header-btn-prev" class="button button-clear button-sm inner-focus" hidden="" aria-label="Previous">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-chevron-left-light"></span>
+     </span>
+    </button>
 
-				
-		<ul class="display-flex gap-xxs-desktop">
-			<!---->
-			<li aria-setsize="4" aria-posinset="1">
-				<panel-controller data-bi-name="site-header-btn-1-discover">
-					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-1" data-test-id="site-header-panel-controller-1" style="white-space: nowrap;">
-						<span><!---->Discover<!----></span>
-						<span class="icon expanded-indicator" aria-hidden="true">
-							<span class="docon docon-chevron-down-light"></span>
-						</span>
-					</button>
-					<div class="site-header-panel" hidden="" id="ms--panel-1" data-bi-name="panel-1-discover" data-test-id="site-header-panel-1">
-						
-		<div class="site-header-panel-content">
-			<ul class="site-header-panel-cards">
-				<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-1-documentation">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/docs/">
-								Documentation
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->In-depth articles on Microsoft developer tools and technologies<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-2-training">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/training/">
-								Training
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Personalized learning paths and courses<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-3-credentials">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/credentials/">
-								Credentials
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Globally recognized, industry-endorsed credentials<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-4-qna">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/answers/">
-								Q&amp;A
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Technical questions and answers moderated by Microsoft<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-5-code-samples">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/samples/">
-								Code Samples
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Code sample library for Microsoft developer tools and technologies<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-6-assessments">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/assessments/">
-								Assessments
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Interactive, curated guidance and recommendations<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-				<li>
-					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-7-shows">
-						<div class="card-content">
-							<a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/shows/">
-								Shows
-							</a>
-							<p class="card-content-description line-clamp-2"><!---->Thousands of hours of original programming from Microsoft experts<!----></p>
-						</div>
-					</article>
-				</li>
-			<!---->
-			</ul>
-			
-		</div>
-		
-			<section class="site-header-panel-featured-content"><!----><!---->
-				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
-					<div class="card-content">
-						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
-						<a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
-							Register Now!
-						</a>
-						<p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
-					</div>
-				</article>
-			<!----><!----></section>
-		
-	
-					</div>
-				</panel-controller>
-			</li>
-		<!---->
-			<li aria-setsize="4" aria-posinset="2">
-				<panel-controller data-bi-name="site-header-btn-2-product-documentation">
-					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-2" data-test-id="site-header-panel-controller-2" style="white-space: nowrap;">
-						<span><!---->Product documentation<!----></span>
-						<span class="icon expanded-indicator" aria-hidden="true">
-							<span class="docon docon-chevron-down-light"></span>
-						</span>
-					</button>
-					<div class="site-header-panel" hidden="" id="ms--panel-2" data-bi-name="panel-2-product-documentation" data-test-id="site-header-panel-2">
-						
-		<div class="site-header-panel-content">
-			<ul class="site-header-panel-links">
-				<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/aspnet/" data-bi-name="panel-link-1-asp-dotnet">
-						ASP.NET
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/azure/" data-bi-name="panel-link-2-azure">
-						Azure
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dynamics365/" data-bi-name="panel-link-3-dynamics365">
-						Dynamics 365
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/microsoft-365/" data-bi-name="panel-link-4-microsoft-365">
-						Microsoft 365
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/copilot/" data-bi-name="panel-link-5-copilot">
-						Microsoft Copilot
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/entra/" data-bi-name="panel-link-6-microsoft-entra">
-						Microsoft Entra
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/exchange/" data-bi-name="panel-link-7-microsoft-exchange">
-						Microsoft Exchange
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/fabric/" data-bi-name="panel-link-8-microsoft-fabric">
-						Microsoft Fabric
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/mem/" data-bi-name="panel-link-9-microsoft-intune">
-						Microsoft Intune
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dotnet/" data-bi-name="panel-link-10-dotnet">
-						.NET
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-apps/" data-bi-name="panel-link-12-power-apps">
-						Power Apps
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-bi/" data-bi-name="panel-link-13-power-bi">
-						Power BI
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-platform/" data-bi-name="panel-link-14-power-platform">
-						Power Platform
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/purview/" data-bi-name="panel-link-15-microsoft-purview">
-						Microsoft Purview
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/sharepoint/" data-bi-name="panel-link-16-sharepoint">
-						SharePoint
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/sql/" data-bi-name="panel-link-17-sql">
-						SQL
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/microsoftteams/" data-bi-name="panel-link-18-microsoft-teams">
-						Microsoft Teams
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/visualstudio/" data-bi-name="panel-link-19-visual-studio">
-						Visual Studio
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/windows/" data-bi-name="panel-link-20-windows">
-						Windows
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/windows-server/" data-bi-name="panel-link-21-windows-server">
-						Windows Server
-					</a>
-				</li>
-			<!---->
-			</ul>
-			
-			<a class="button button-clear button-sm color-hyperlink justify-content-flex-start border-none background-color-transparent margin-top-sm" href="https://learn.microsoft.com/en-gb/docs/" data-bi-name="panel-cta-view-all-products">
-				View all products
-			</a>
-		
-		</div>
-		
-			<section class="site-header-panel-featured-content"><!----><!---->
-				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
-					<div class="card-content">
-						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
-						<a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
-							Register Now!
-						</a>
-						<p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
-					</div>
-				</article>
-			<!----><!----></section>
-		
-	
-					</div>
-				</panel-controller>
-			</li>
-		<!---->
-			<li aria-setsize="4" aria-posinset="3">
-				<panel-controller data-bi-name="site-header-btn-3-dev-languages">
-					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-3" data-test-id="site-header-panel-controller-3" style="white-space: nowrap;">
-						<span><!---->Development languages<!----></span>
-						<span class="icon expanded-indicator" aria-hidden="true">
-							<span class="docon docon-chevron-down-light"></span>
-						</span>
-					</button>
-					<div class="site-header-panel" hidden="" id="ms--panel-3" data-bi-name="panel-3-dev-languages" data-test-id="site-header-panel-3">
-						
-		<div class="site-header-panel-content">
-			<ul class="site-header-panel-links">
-				<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/cpp/" data-bi-name="panel-link-1-cpp">
-						C++
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dotnet/csharp/" data-bi-name="panel-link-2-csharp">
-						C#
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dax/" data-bi-name="panel-link-3-dax">
-						DAX
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/java/" data-bi-name="panel-link-4-java">
-						Java
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/odata/" data-bi-name="panel-link-5-odata">
-						OData
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/openapi/" data-bi-name="panel-link-6-open-api">
-						OpenAPI
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/powerquery-m/" data-bi-name="panel-link-7-power-query-m">
-						Power Query M
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/office/vba/" data-bi-name="panel-link-8-vba">
-						VBA
-					</a>
-				</li>
-			<!---->
-			</ul>
-			
-		</div>
-		
-			<section class="site-header-panel-featured-content"><!----><!---->
-				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
-					<div class="card-content">
-						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
-						<a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
-							Register Now!
-						</a>
-						<p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
-					</div>
-				</article>
-			<!----><!----></section>
-		
-	
-					</div>
-				</panel-controller>
-			</li>
-		<!---->
-			<li aria-setsize="4" aria-posinset="4">
-				<panel-controller data-bi-name="site-header-btn-4-topics">
-					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-4" data-test-id="site-header-panel-controller-4" style="white-space: nowrap;">
-						<span><!---->Topics<!----></span>
-						<span class="icon expanded-indicator" aria-hidden="true">
-							<span class="docon docon-chevron-down-light"></span>
-						</span>
-					</button>
-					<div class="site-header-panel" hidden="" id="ms--panel-4" data-bi-name="panel-4-topics" data-test-id="site-header-panel-4">
-						
-		<div class="site-header-panel-content">
-			<ul class="site-header-panel-links">
-				<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/training/organizations/" data-bi-name="panel-link-1-microsoft-learn-for-organizations">
-						Learn for Organizations
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/ai/" data-bi-name="panel-link-2-ai">
-						Artificial intelligence
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/compliance/" data-bi-name="panel-link-3-compliance">
-						Compliance
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/devops/" data-bi-name="panel-link-4-devops">
-						DevOps
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/platform-engineering/" data-bi-name="panel-link-5-platform-engineering">
-						Platform engineering
-					</a>
-				</li>
-			<!---->
-				<li>
-					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/security/" data-bi-name="panel-link-6-security">
-						Security
-					</a>
-				</li>
-			<!---->
-			</ul>
-			
-		</div>
-		
-			<section class="site-header-panel-featured-content"><!----><!---->
-				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
-					<div class="card-content">
-						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
-						<a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
-							Register Now!
-						</a>
-						<p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
-					</div>
-				</article>
-			<!----><!----></section>
-		
-	
-					</div>
-				</panel-controller>
-			</li>
-		<!---->
-		</ul>
-	
+    
+  <ul class="display-flex gap-xxs-desktop">
+   <!---->
+   <li aria-setsize="4" aria-posinset="1">
+    <panel-controller data-bi-name="site-header-btn-1-discover">
+     <button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-1" data-test-id="site-header-panel-controller-1" style="white-space: nowrap;">
+      <span><!---->Discover<!----></span>
+      <span class="icon expanded-indicator" aria-hidden="true">
+       <span class="docon docon-chevron-down-light"></span>
+      </span>
+     </button>
+     <div class="site-header-panel" hidden="" id="ms--panel-1" data-bi-name="panel-1-discover" data-test-id="site-header-panel-1">
+      
+  <div class="site-header-panel-content">
+   <ul class="site-header-panel-cards">
+    <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-1-documentation">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/docs/">
+        Documentation
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->In-depth articles on Microsoft developer tools and technologies<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-2-training">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/training/">
+        Training
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Personalized learning paths and courses<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-3-credentials">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/credentials/">
+        Credentials
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Globally recognized, industry-endorsed credentials<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-4-qna">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/answers/">
+        Q&amp;A
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Technical questions and answers moderated by Microsoft<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-5-code-samples">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/samples/">
+        Code Samples
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Code sample library for Microsoft developer tools and technologies<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-6-assessments">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/assessments/">
+        Assessments
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Interactive, curated guidance and recommendations<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+    <li>
+     <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-7-shows">
+      <div class="card-content">
+       <a class="card-title color-text background-color-transparent stretched-link" href="https://learn.microsoft.com/en-gb/shows/">
+        Shows
+       </a>
+       <p class="card-content-description line-clamp-2"><!---->Thousands of hours of original programming from Microsoft experts<!----></p>
+      </div>
+     </article>
+    </li>
+   <!---->
+   </ul>
+   
+  </div>
+  
+   <section class="site-header-panel-featured-content"><!----><!---->
+    <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
+     <div class="card-content">
+      <p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
+      <a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
+       Register Now!
+      </a>
+      <p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
+     </div>
+    </article>
+   <!----><!----></section>
+  
+ 
+     </div>
+    </panel-controller>
+   </li>
+  <!---->
+   <li aria-setsize="4" aria-posinset="2">
+    <panel-controller data-bi-name="site-header-btn-2-product-documentation">
+     <button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-2" data-test-id="site-header-panel-controller-2" style="white-space: nowrap;">
+      <span><!---->Product documentation<!----></span>
+      <span class="icon expanded-indicator" aria-hidden="true">
+       <span class="docon docon-chevron-down-light"></span>
+      </span>
+     </button>
+     <div class="site-header-panel" hidden="" id="ms--panel-2" data-bi-name="panel-2-product-documentation" data-test-id="site-header-panel-2">
+      
+  <div class="site-header-panel-content">
+   <ul class="site-header-panel-links">
+    <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/aspnet/" data-bi-name="panel-link-1-asp-dotnet">
+      ASP.NET
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/azure/" data-bi-name="panel-link-2-azure">
+      Azure
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dynamics365/" data-bi-name="panel-link-3-dynamics365">
+      Dynamics 365
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/microsoft-365/" data-bi-name="panel-link-4-microsoft-365">
+      Microsoft 365
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/copilot/" data-bi-name="panel-link-5-copilot">
+      Microsoft Copilot
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/entra/" data-bi-name="panel-link-6-microsoft-entra">
+      Microsoft Entra
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/exchange/" data-bi-name="panel-link-7-microsoft-exchange">
+      Microsoft Exchange
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/fabric/" data-bi-name="panel-link-8-microsoft-fabric">
+      Microsoft Fabric
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/mem/" data-bi-name="panel-link-9-microsoft-intune">
+      Microsoft Intune
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dotnet/" data-bi-name="panel-link-10-dotnet">
+      .NET
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-apps/" data-bi-name="panel-link-12-power-apps">
+      Power Apps
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-bi/" data-bi-name="panel-link-13-power-bi">
+      Power BI
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/power-platform/" data-bi-name="panel-link-14-power-platform">
+      Power Platform
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/purview/" data-bi-name="panel-link-15-microsoft-purview">
+      Microsoft Purview
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/sharepoint/" data-bi-name="panel-link-16-sharepoint">
+      SharePoint
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/sql/" data-bi-name="panel-link-17-sql">
+      SQL
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/microsoftteams/" data-bi-name="panel-link-18-microsoft-teams">
+      Microsoft Teams
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/visualstudio/" data-bi-name="panel-link-19-visual-studio">
+      Visual Studio
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/windows/" data-bi-name="panel-link-20-windows">
+      Windows
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/windows-server/" data-bi-name="panel-link-21-windows-server">
+      Windows Server
+     </a>
+    </li>
+   <!---->
+   </ul>
+   
+   <a class="button button-clear button-sm color-hyperlink justify-content-flex-start border-none background-color-transparent margin-top-sm" href="https://learn.microsoft.com/en-gb/docs/" data-bi-name="panel-cta-view-all-products">
+    View all products
+   </a>
+  
+  </div>
+  
+   <section class="site-header-panel-featured-content"><!----><!---->
+    <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
+     <div class="card-content">
+      <p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
+      <a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
+       Register Now!
+      </a>
+      <p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
+     </div>
+    </article>
+   <!----><!----></section>
+  
+ 
+     </div>
+    </panel-controller>
+   </li>
+  <!---->
+   <li aria-setsize="4" aria-posinset="3">
+    <panel-controller data-bi-name="site-header-btn-3-dev-languages">
+     <button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-3" data-test-id="site-header-panel-controller-3" style="white-space: nowrap;">
+      <span><!---->Development languages<!----></span>
+      <span class="icon expanded-indicator" aria-hidden="true">
+       <span class="docon docon-chevron-down-light"></span>
+      </span>
+     </button>
+     <div class="site-header-panel" hidden="" id="ms--panel-3" data-bi-name="panel-3-dev-languages" data-test-id="site-header-panel-3">
+      
+  <div class="site-header-panel-content">
+   <ul class="site-header-panel-links">
+    <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/cpp/" data-bi-name="panel-link-1-cpp">
+      C++
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dotnet/csharp/" data-bi-name="panel-link-2-csharp">
+      C#
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/dax/" data-bi-name="panel-link-3-dax">
+      DAX
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/java/" data-bi-name="panel-link-4-java">
+      Java
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/odata/" data-bi-name="panel-link-5-odata">
+      OData
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/openapi/" data-bi-name="panel-link-6-open-api">
+      OpenAPI
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/powerquery-m/" data-bi-name="panel-link-7-power-query-m">
+      Power Query M
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/office/vba/" data-bi-name="panel-link-8-vba">
+      VBA
+     </a>
+    </li>
+   <!---->
+   </ul>
+   
+  </div>
+  
+   <section class="site-header-panel-featured-content"><!----><!---->
+    <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
+     <div class="card-content">
+      <p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
+      <a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
+       Register Now!
+      </a>
+      <p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
+     </div>
+    </article>
+   <!----><!----></section>
+  
+ 
+     </div>
+    </panel-controller>
+   </li>
+  <!---->
+   <li aria-setsize="4" aria-posinset="4">
+    <panel-controller data-bi-name="site-header-btn-4-topics">
+     <button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-4" data-test-id="site-header-panel-controller-4" style="white-space: nowrap;">
+      <span><!---->Topics<!----></span>
+      <span class="icon expanded-indicator" aria-hidden="true">
+       <span class="docon docon-chevron-down-light"></span>
+      </span>
+     </button>
+     <div class="site-header-panel" hidden="" id="ms--panel-4" data-bi-name="panel-4-topics" data-test-id="site-header-panel-4">
+      
+  <div class="site-header-panel-content">
+   <ul class="site-header-panel-links">
+    <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/training/organizations/" data-bi-name="panel-link-1-microsoft-learn-for-organizations">
+      Learn for Organizations
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/ai/" data-bi-name="panel-link-2-ai">
+      Artificial intelligence
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/compliance/" data-bi-name="panel-link-3-compliance">
+      Compliance
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/devops/" data-bi-name="panel-link-4-devops">
+      DevOps
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/platform-engineering/" data-bi-name="panel-link-5-platform-engineering">
+      Platform engineering
+     </a>
+    </li>
+   <!---->
+    <li>
+     <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="https://learn.microsoft.com/en-gb/security/" data-bi-name="panel-link-6-security">
+      Security
+     </a>
+    </li>
+   <!---->
+   </ul>
+   
+  </div>
+  
+   <section class="site-header-panel-featured-content"><!----><!---->
+    <article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-ai-skills-fest">
+     <div class="card-content">
+      <p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft AI Skills Fest<!----></p>
+      <a class="card-title color-text background-color-transparent stretched-link" href="https://aka.ms/AISkillsFest_MSLearn">
+       Register Now!
+      </a>
+      <p class="card-content-description line-clamp-2"><!---->April 8 - May 28, 2025<!----></p>
+     </div>
+    </article>
+   <!----><!----></section>
+  
+ 
+     </div>
+    </panel-controller>
+   </li>
+  <!---->
+  </ul>
+ 
 
-				<button type="button" data-overflow-menu-next-button="" data-bi-name="site-header-btn-next" class="button button-clear button-sm inner-focus margin-left-auto" hidden="" aria-label="Next">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-chevron-right-light"></span>
-					</span>
-				</button>
-			</nav>
-		</overflow-menu>
-	
+    <button type="button" data-overflow-menu-next-button="" data-bi-name="site-header-btn-next" class="button button-clear button-sm inner-focus margin-left-auto" hidden="" aria-label="Next">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-chevron-right-light"></span>
+     </span>
+    </button>
+   </nav>
+  </overflow-menu>
+ 
 
-			<!-- Search -->
-			
-		<search-expander data-test-id="site-header-search" class="flex-grow-1 margin-left-xxs">
-			<div hidden="" id="ms--site-header-search" class="display-flex align-items-center gap-xxs ">
-				
-		<form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form" data-bi-name="site-header-search-form" name="site-header-search-form" aria-label="Search" action="https://learn.microsoft.com/en-gb/search/">
-			<div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
-			<div class="field-body control ">
-				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input" data-test-id="site-header-search-autocomplete-input" class="autocomplete-input input input-sm
-						
-						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-0-listbox" aria-controls="ax-0-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input" pattern=".*">
+   <!-- Search -->
+   
+  <search-expander data-test-id="site-header-search" class="flex-grow-1 margin-left-xxs">
+   <div hidden="" id="ms--site-header-search" class="display-flex align-items-center gap-xxs ">
+    
+  <form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form" data-bi-name="site-header-search-form" name="site-header-search-form" aria-label="Search" action="https://learn.microsoft.com/en-gb/search/">
+   <div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+   <div class="field-body control ">
+    <input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input" data-test-id="site-header-search-autocomplete-input" class="autocomplete-input input input-sm
+      
+      width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-0-listbox" aria-controls="ax-0-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input" pattern=".*">
 
-				
+    
 
-				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+    <span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
 
-				<span hidden="" id="ms--site-header-search-autocomplete-input-description">
-					Suggestions will filter as you type
-				</span>
-			</div>
+    <span hidden="" id="ms--site-header-search-autocomplete-input-description">
+     Suggestions will filter as you type
+    </span>
+   </div>
 
-			<ul role="listbox" id="ax-0-listbox" data-test-id="site-header-search-autocomplete-input-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
-				
-				
-			</ul>
-		<!----></div>
-			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
-			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
-			<input name="category" hidden="" value="Training">
-			
-			
-		</form>
-	
-				<button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Close search" data-bi-name="site-header-search-close" data-test-id="site-header-search-close">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-navigate-close"></span>
-					</span>
-				</button>
-			</div>
-			<button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Open search" data-bi-name="site-header-search-open" data-test-id="site-header-search-open">
-				<span class="icon" aria-hidden="true">
-					<span class="docon docon-search"></span>
-				</span>
-			</button>
-		</search-expander>
-	
-		</div>
+   <ul role="listbox" id="ax-0-listbox" data-test-id="site-header-search-autocomplete-input-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+    
+    
+   </ul>
+  <!----></div>
+   <!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+   <button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+   <input name="category" hidden="" value="Training">
+   
+   
+  </form>
+ 
+    <button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Close search" data-bi-name="site-header-search-close" data-test-id="site-header-search-close">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-navigate-close"></span>
+     </span>
+    </button>
+   </div>
+   <button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Open search" data-bi-name="site-header-search-open" data-test-id="site-header-search-open">
+    <span class="icon" aria-hidden="true">
+     <span class="docon docon-search"></span>
+    </span>
+   </button>
+  </search-expander>
+ 
+  </div>
 
-		<!-- User avatar/Sign in -->
-		<!---->
-		<a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-in" data-test-id="site-header-sign-in" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated ">
-			Sign in
-		</a>
-	 
-		<details data-bi-name="site-header-user" class="popover popover-right auth-status-determined authenticated ">
-			<summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user">
-				<div class="persona ">
-					<figure class="persona-avatar">
-						<img alt="" data-profile-property="avatarThumbnailUrl" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
-					</figure>
-				</div>
-			</summary>
-			<div class="popover-content width-auto" data-bi-name="site-header-user-menu">
-				<div class="persona ">
-					<figure class="persona-avatar">
-						<img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
-					</figure>
-					<div class="persona-details" data-test-id="persona-detail">
-						<p class="persona-name" data-profile-property="displayName" id="ms--user-display-name">Nathan G. Busse</p>
-						<p data-profile-property="upn">bussenathan@icloud.com</p>
-					</div>
-				</div>
-				<ul class="padding-block-xs">
-					<li class="padding-bottom-xs">
-						<a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-gb/users/me/activity/">
-							Profile
-						</a>
-					</li>
-					<li>
-						<a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-gb/users/me/settings/">
-							Settings
-						</a>
-					</li>
-				</ul>
-				<div class="border-top padding-top-xs">
-					<a class="docs-sign-out font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-out" data-test-id="site-header-user-sign-out">
-						Sign out
-					</a>
-				</div>
-			</div>
-		</details>
-	<!---->
-	<!----></div>
-				<div id="ms--secondary-nav" class="display-none display-flex-tablet" data-bi-name="L2-header" data-test-id="secondary-header"><!----><div class="site-header width-full"><!----> 
-		<a class="site-header-brand font-size-h6 padding-inline-none margin-right-xxs" itemprop="url" href="https://learn.microsoft.com/en-gb/training/" data-bi-name="secondary-nav-link-category-training">
-			<span>
-				Training
-				
-			</span>
-		</a>
-	 
-		
-		<nav class="site-header-nav width-auto" data-bi-name="secondary-nav" aria-label="Site">
-			<ul class="display-flex">
-				<!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button is-active site-header-button-icon-chevron" aria-controls="bx-92" data-bi-name="secondary-nav-btn-1-products" value="products" aria-current="true">
-				<span><!---->Products<!----></span>
-				<span aria-hidden="true" class="icon expanded-indicator ">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-92" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/azure/" data-bi-name="secondary-nav-link-1-azure">
-						<span><!---->Azure<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dynamics365/" data-bi-name="secondary-nav-link-2-dynamics-365">
-						<span><!---->Dynamics 365<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/defender/" data-bi-name="secondary-nav-link-3-defender">
-						<span><!---->Defender<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dotnet/" data-bi-name="secondary-nav-link-4-dotnet">
-						<span><!---->.NET<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/github/" data-bi-name="secondary-nav-link-5-github">
-						<span><!---->GitHub<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/m365/" data-bi-name="secondary-nav-link-6-microsoft-365">
-						<span><!---->Microsoft 365<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/entra/" data-bi-name="secondary-nav-link-7-microsoft-entra">
-						<span><!---->Microsoft Entra<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/fabric/" data-bi-name="secondary-nav-link-8-microsoft-fabric">
-						<span><!---->Microsoft Fabric<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/powerplatform/" data-bi-name="secondary-nav-link-9-power-platform">
-						<span><!---->Power Platform<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/purview/" data-bi-name="secondary-nav-link-10-purview">
-						<span><!---->Purview<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/teams/" data-bi-name="secondary-nav-link-11-teams">
-						<span><!---->Teams<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-12-browse-all-training">
-						<span><!---->Browse all training<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-93" data-bi-name="secondary-nav-btn-2-career-paths" value="career-paths">
-				<span><!---->Career Paths<!----></span>
-				<span aria-hidden="true" class="icon expanded-indicator ">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-93" aria-label="Career Paths" data-bi-name="secondary-nav-menu-2-career-paths">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/administrator/" data-bi-name="secondary-nav-link-1-administrator">
-						<span><!---->Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/ai-engineer/" data-bi-name="secondary-nav-link-2-ai-engineer">
-						<span><!---->AI Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/app-maker/" data-bi-name="secondary-nav-link-3-app-maker">
-						<span><!---->App Maker<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/business-user/" data-bi-name="secondary-nav-link-4-business-user">
-						<span><!---->Business User<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-analyst/" data-bi-name="secondary-nav-link-5-data-analyst">
-						<span><!---->Data Analyst<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-engineer/" data-bi-name="secondary-nav-link-6-data-engineer">
-						<span><!---->Data Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-scientist/" data-bi-name="secondary-nav-link-7-data-scientist">
-						<span><!---->Data Scientist<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/developer/" data-bi-name="secondary-nav-link-8-developer">
-						<span><!---->Developer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/devops-engineer/" data-bi-name="secondary-nav-link-9-devops-engineer">
-						<span><!---->DevOps Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/functional-consultant/" data-bi-name="secondary-nav-link-10-functional-consultant">
-						<span><!---->Functional Consultant<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/identity-and-access-admin/" data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
-						<span><!---->Identity and Access Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/information-protection-admin/" data-bi-name="secondary-nav-link-12-information-protection-administrator">
-						<span><!---->Information Protection Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-operations-analyst/" data-bi-name="secondary-nav-link-13-security-operations-analyst">
-						<span><!---->Security Operations Analyst<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-engineer/" data-bi-name="secondary-nav-link-14-security-engineer">
-						<span><!---->Security Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/solution-architect/" data-bi-name="secondary-nav-link-15-solutions-architect">
-						<span><!---->Solutions Architect<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li>
-					<a data-test-id="header-link-browse-all-training" class="has-external-link-indicator site-header-button " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-3-browse-all-training">
-						<span><!---->Browse all training<!----></span>
-					</a>
-				</li>
-		  <!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-94" data-bi-name="secondary-nav-btn-4-educator-center" value="educator-center">
-				<span><!---->Educator Center<!----></span>
-				<span aria-hidden="true" class="icon expanded-indicator ">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-94" aria-label="Educator Center" data-bi-name="secondary-nav-menu-4-educator-center">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/" data-bi-name="secondary-nav-link-1-overview">
-						<span><!---->Overview<!----></span>
-					</a>
-				</li>
-		  <!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-95" data-bi-name="secondary-nav-btn-2-professional-development" value="professional-development">
-				<span><!---->Professional development<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-95" aria-label="Professional development" data-bi-name="secondary-nav-menu-2-professional-development">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/accessibility/" data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
-						<span><!---->Accessibility and inclusivity<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/ai-for-education/" data-bi-name="secondary-nav-link-2-ai-for-education">
-						<span><!---->AI for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/blended-learning/" data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
-						<span><!---->Blended, remote, and hybrid learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/cybersecurity" data-bi-name="secondary-nav-link-4-cybersecurity">
-						<span><!---->Cybersecurity<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/education-leadership/" data-bi-name="secondary-nav-link-5-education-leadership-and-staff-collaboration">
-						<span><!---->Education leadership and staff collaboration<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/learning-accelerators/" data-bi-name="secondary-nav-link-6-learning-accelerators">
-						<span><!---->Learning Accelerators<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/instructional-toolbox/" data-bi-name="secondary-nav-link-7-microsoft-instructional-toolbox">
-						<span><!---->Microsoft instructional toolbox<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/social-emotional-learning/" data-bi-name="secondary-nav-link-8-social-emotional-learning">
-						<span><!---->Social emotional learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/stem/" data-bi-name="secondary-nav-link-9-stem-coding-and-esports">
-						<span><!---->STEM, coding, and esports<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/student-centered-learning/" data-bi-name="secondary-nav-link-10--student-centered-learning">
-						<span><!---->Student-centered learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/whats-new/" data-bi-name="secondary-nav-link-11-whats-happening-in-education">
-						<span><!---->What's happening in education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-12-browse-all">
-						<span><!---->Browse all<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-96" data-bi-name="secondary-nav-btn-3-product-guides" value="product-guides">
-				<span><!---->Product guides<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-96" aria-label="Product guides" data-bi-name="secondary-nav-menu-3-product-guides">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/teams/" data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
-						<span><!---->Microsoft Teams for Education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/onenote/" data-bi-name="secondary-nav-link-2-onenote-for-education">
-						<span><!---->OneNote for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/office/" data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
-						<span><!---->Microsoft 365 for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/minecraft/" data-bi-name="secondary-nav-link-4-minecraft-education">
-						<span><!---->Minecraft Education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/windows/" data-bi-name="secondary-nav-link-5-windows-for-education">
-						<span><!---->Windows for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/powerpoint/" data-bi-name="secondary-nav-link-6-powerpoint-for-education">
-						<span><!---->PowerPoint for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/immersive-reader/" data-bi-name="secondary-nav-link-7-immersive-reader">
-						<span><!---->Immersive Reader<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/reading-progress/" data-bi-name="secondary-nav-link-8-reading-progress">
-						<span><!---->Reading Progress<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/search-coach/" data-bi-name="secondary-nav-link-9-search-progress-and-coach">
-						<span><!---->Search Progress and Coach<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-10-browse-all">
-						<span><!---->Browse all<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/instructor-materials/" data-bi-name="secondary-nav-link-4-instructor-materials">
-						<span><!---->Instructor materials<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/programs/" data-bi-name="secondary-nav-link-5-educator-programs">
-						<span><!---->Educator programs<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-97" data-bi-name="secondary-nav-btn-5-student-hub" value="student-hub">
-				<span><!---->Student Hub<!----></span>
-				<span aria-hidden="true" class="icon expanded-indicator ">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-97" aria-label="Student Hub" data-bi-name="secondary-nav-menu-5-student-hub">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/" data-bi-name="secondary-nav-link-1-overview">
-						<span><!---->Overview<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/certifications/" data-bi-name="secondary-nav-link-2-student-certifications">
-						<span><!---->Student certifications<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li>
-					<a data-test-id="header-link-faq-&amp;-help" class="has-external-link-indicator site-header-button " href="https://learn.microsoft.com/en-gb/training/support/" data-bi-name="secondary-nav-link-6-faq-and-help">
-						<span><!---->FAQ &amp; Help<!----></span>
-					</a>
-				</li>
-		  <!---->
-		<li class="dropdown" hidden="">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-98" data-bi-name="secondary-nav-btn-more" value="undefined">
-				<span><!---->More<!----></span>
-				<span aria-hidden="true" class="icon expanded-indicator ">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-98" aria-label="More" data-bi-name="secondary-nav-menu-more">
-				<!---->
-		<li class="dropdown" hidden="">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button is-active width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-current="true" aria-controls="bx-99" data-bi-name="secondary-nav-btn-1-products" value="products">
-				<span><!---->Products<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-99" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/azure/" data-bi-name="secondary-nav-link-1-azure">
-						<span><!---->Azure<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dynamics365/" data-bi-name="secondary-nav-link-2-dynamics-365">
-						<span><!---->Dynamics 365<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/defender/" data-bi-name="secondary-nav-link-3-defender">
-						<span><!---->Defender<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dotnet/" data-bi-name="secondary-nav-link-4-dotnet">
-						<span><!---->.NET<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/github/" data-bi-name="secondary-nav-link-5-github">
-						<span><!---->GitHub<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/m365/" data-bi-name="secondary-nav-link-6-microsoft-365">
-						<span><!---->Microsoft 365<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/entra/" data-bi-name="secondary-nav-link-7-microsoft-entra">
-						<span><!---->Microsoft Entra<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/fabric/" data-bi-name="secondary-nav-link-8-microsoft-fabric">
-						<span><!---->Microsoft Fabric<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/powerplatform/" data-bi-name="secondary-nav-link-9-power-platform">
-						<span><!---->Power Platform<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/purview/" data-bi-name="secondary-nav-link-10-purview">
-						<span><!---->Purview<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/teams/" data-bi-name="secondary-nav-link-11-teams">
-						<span><!---->Teams<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-12-browse-all-training">
-						<span><!---->Browse all training<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown" hidden="">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-100" data-bi-name="secondary-nav-btn-2-career-paths" value="career-paths">
-				<span><!---->Career Paths<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-100" aria-label="Career Paths" data-bi-name="secondary-nav-menu-2-career-paths">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/administrator/" data-bi-name="secondary-nav-link-1-administrator">
-						<span><!---->Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/ai-engineer/" data-bi-name="secondary-nav-link-2-ai-engineer">
-						<span><!---->AI Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/app-maker/" data-bi-name="secondary-nav-link-3-app-maker">
-						<span><!---->App Maker<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/business-user/" data-bi-name="secondary-nav-link-4-business-user">
-						<span><!---->Business User<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-analyst/" data-bi-name="secondary-nav-link-5-data-analyst">
-						<span><!---->Data Analyst<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-engineer/" data-bi-name="secondary-nav-link-6-data-engineer">
-						<span><!---->Data Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-scientist/" data-bi-name="secondary-nav-link-7-data-scientist">
-						<span><!---->Data Scientist<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/developer/" data-bi-name="secondary-nav-link-8-developer">
-						<span><!---->Developer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/devops-engineer/" data-bi-name="secondary-nav-link-9-devops-engineer">
-						<span><!---->DevOps Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/functional-consultant/" data-bi-name="secondary-nav-link-10-functional-consultant">
-						<span><!---->Functional Consultant<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/identity-and-access-admin/" data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
-						<span><!---->Identity and Access Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/information-protection-admin/" data-bi-name="secondary-nav-link-12-information-protection-administrator">
-						<span><!---->Information Protection Administrator<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-operations-analyst/" data-bi-name="secondary-nav-link-13-security-operations-analyst">
-						<span><!---->Security Operations Analyst<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-engineer/" data-bi-name="secondary-nav-link-14-security-engineer">
-						<span><!---->Security Engineer<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/solution-architect/" data-bi-name="secondary-nav-link-15-solutions-architect">
-						<span><!---->Solutions Architect<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li hidden="">
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-3-browse-all-training">
-						<span><!---->Browse all training<!----></span>
-					</a>
-				</li>
-		  <!---->
-		<li class="dropdown" hidden="">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-101" data-bi-name="secondary-nav-btn-4-educator-center" value="educator-center">
-				<span><!---->Educator Center<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-101" aria-label="Educator Center" data-bi-name="secondary-nav-menu-4-educator-center">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/" data-bi-name="secondary-nav-link-1-overview">
-						<span><!---->Overview<!----></span>
-					</a>
-				</li>
-		  <!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-102" data-bi-name="secondary-nav-btn-2-professional-development" value="professional-development">
-				<span><!---->Professional development<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-102" aria-label="Professional development" data-bi-name="secondary-nav-menu-2-professional-development">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/accessibility/" data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
-						<span><!---->Accessibility and inclusivity<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/ai-for-education/" data-bi-name="secondary-nav-link-2-ai-for-education">
-						<span><!---->AI for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/blended-learning/" data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
-						<span><!---->Blended, remote, and hybrid learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/cybersecurity" data-bi-name="secondary-nav-link-4-cybersecurity">
-						<span><!---->Cybersecurity<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/education-leadership/" data-bi-name="secondary-nav-link-5-education-leadership-and-staff-collaboration">
-						<span><!---->Education leadership and staff collaboration<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/learning-accelerators/" data-bi-name="secondary-nav-link-6-learning-accelerators">
-						<span><!---->Learning Accelerators<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/instructional-toolbox/" data-bi-name="secondary-nav-link-7-microsoft-instructional-toolbox">
-						<span><!---->Microsoft instructional toolbox<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/social-emotional-learning/" data-bi-name="secondary-nav-link-8-social-emotional-learning">
-						<span><!---->Social emotional learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/stem/" data-bi-name="secondary-nav-link-9-stem-coding-and-esports">
-						<span><!---->STEM, coding, and esports<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/student-centered-learning/" data-bi-name="secondary-nav-link-10--student-centered-learning">
-						<span><!---->Student-centered learning<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/whats-new/" data-bi-name="secondary-nav-link-11-whats-happening-in-education">
-						<span><!---->What's happening in education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-12-browse-all">
-						<span><!---->Browse all<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-103" data-bi-name="secondary-nav-btn-3-product-guides" value="product-guides">
-				<span><!---->Product guides<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-103" aria-label="Product guides" data-bi-name="secondary-nav-menu-3-product-guides">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/teams/" data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
-						<span><!---->Microsoft Teams for Education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/onenote/" data-bi-name="secondary-nav-link-2-onenote-for-education">
-						<span><!---->OneNote for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/office/" data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
-						<span><!---->Microsoft 365 for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/minecraft/" data-bi-name="secondary-nav-link-4-minecraft-education">
-						<span><!---->Minecraft Education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/windows/" data-bi-name="secondary-nav-link-5-windows-for-education">
-						<span><!---->Windows for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/powerpoint/" data-bi-name="secondary-nav-link-6-powerpoint-for-education">
-						<span><!---->PowerPoint for education<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/immersive-reader/" data-bi-name="secondary-nav-link-7-immersive-reader">
-						<span><!---->Immersive Reader<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/reading-progress/" data-bi-name="secondary-nav-link-8-reading-progress">
-						<span><!---->Reading Progress<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/search-coach/" data-bi-name="secondary-nav-link-9-search-progress-and-coach">
-						<span><!---->Search Progress and Coach<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-10-browse-all">
-						<span><!---->Browse all<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/instructor-materials/" data-bi-name="secondary-nav-link-4-instructor-materials">
-						<span><!---->Instructor materials<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/programs/" data-bi-name="secondary-nav-link-5-educator-programs">
-						<span><!---->Educator programs<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-		<li class="dropdown" hidden="">
-			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-104" data-bi-name="secondary-nav-btn-5-student-hub" value="student-hub">
-				<span><!---->Student Hub<!----></span>
-				<span aria-hidden="true" class="icon  margin-left-xs">
-					<span class="docon docon-chevron-right-light"></span>
-				</span>
-			</button>
-			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-104" aria-label="Student Hub" data-bi-name="secondary-nav-menu-5-student-hub">
-				<!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/" data-bi-name="secondary-nav-link-1-overview">
-						<span><!---->Overview<!----></span>
-					</a>
-				</li>
-		  <!---->
-				<li>
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/certifications/" data-bi-name="secondary-nav-link-2-student-certifications">
-						<span><!---->Student certifications<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-				<li hidden="">
-					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/support/" data-bi-name="secondary-nav-link-6-faq-and-help">
-						<span><!---->FAQ &amp; Help<!----></span>
-					</a>
-				</li>
-		  <!---->
-			</ul>
-		</li>
-	<!---->
-			</ul>
-		</nav>
-	
-		<span class="nav-bar-spacer"></span>
-		 
-		<div id="level-status-container" class="display-flex align-items-center is-hidden-touch flex-shrink-0">
-			<div id="level-status" class="position-relative level margin-inline-xxs"><!---->
-	<span id="level-status-text" class="font-size-xs has-text-wrap is-inline-truncated is-uppercase font-weight-semibold">Level 6</span>
-	<span id="level-status-progress-container" class="hexagonal-progress">
-		<progress id="level-status-progress" class="progress-bar progress-bar-success is-hidden-mobile display-inline-block position-relative border-radius-none" value="89" max="100">89%</progress>
-		<span class="hexagonal-progress-marker"></span>
-	</span>
-	<span id="level-status-points" class="font-size-xs has-text-wrap is-inline-truncated is-uppercase"><!----> <span class="font-weight-semibold"> 10125 </span>/11299 XP<!----><!----></span>
+  <!-- User avatar/Sign in -->
+  <!---->
+  <a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-in" data-test-id="site-header-sign-in" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated ">
+   Sign in
+  </a>
+  
+  <details data-bi-name="site-header-user" class="popover popover-right auth-status-determined authenticated ">
+   <summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user">
+    <div class="persona ">
+     <figure class="persona-avatar">
+      <img alt="" data-profile-property="avatarThumbnailUrl" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
+     </figure>
+    </div>
+   </summary>
+   <div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+    <div class="persona ">
+     <figure class="persona-avatar">
+      <img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name" src="data:image/svg+xml, %3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; height=&#39;64&#39; class=&#39;font-weight-bold&#39; style=&#39;font: 600 30.11764705882353px &quot;SegoeUI&quot;, Arial&#39; width=&#39;64&#39;%3E%3Ccircle fill=&#39;hsl(188.79999999999998, 48%, 28%)&#39; cx=&#39;32&#39; cy=&#39;32&#39; r=&#39;32&#39; /%3E%3Ctext x=&#39;50%25&#39; y=&#39;55%25&#39; dominant-baseline=&#39;middle&#39; text-anchor=&#39;middle&#39; fill=&#39;%23FFF&#39; %3ENG%3C/text%3E%3C/svg%3E">
+     </figure>
+     <div class="persona-details" data-test-id="persona-detail">
+      <p class="persona-name" data-profile-property="displayName" id="ms--user-display-name">Nathan G. Busse</p>
+      <p data-profile-property="upn">bussenathan@icloud.com</p>
+     </div>
+    </div>
+    <ul class="padding-block-xs">
+     <li class="padding-bottom-xs">
+      <a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-gb/users/me/activity/">
+       Profile
+      </a>
+     </li>
+     <li>
+      <a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-gb/users/me/settings/">
+       Settings
+      </a>
+     </li>
+    </ul>
+    <div class="border-top padding-top-xs">
+     <a class="docs-sign-out font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction#" data-bi-name="site-header-sign-out" data-test-id="site-header-user-sign-out">
+      Sign out
+     </a>
+    </div>
+   </div>
+  </details>
+ <!---->
+ <!----></div>
+    <div id="ms--secondary-nav" class="display-none display-flex-tablet" data-bi-name="L2-header" data-test-id="secondary-header"><!----><div class="site-header width-full"><!----> 
+  <a class="site-header-brand font-size-h6 padding-inline-none margin-right-xxs" itemprop="url" href="https://learn.microsoft.com/en-gb/training/" data-bi-name="secondary-nav-link-category-training">
+   <span>
+    Training
+    
+   </span>
+  </a>
+  
+  
+  <nav class="site-header-nav width-auto" data-bi-name="secondary-nav" aria-label="Site">
+   <ul class="display-flex">
+    <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button is-active site-header-button-icon-chevron" aria-controls="bx-92" data-bi-name="secondary-nav-btn-1-products" value="products" aria-current="true">
+    <span><!---->Products<!----></span>
+    <span aria-hidden="true" class="icon expanded-indicator ">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-92" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/azure/" data-bi-name="secondary-nav-link-1-azure">
+      <span><!---->Azure<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dynamics365/" data-bi-name="secondary-nav-link-2-dynamics-365">
+      <span><!---->Dynamics 365<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/defender/" data-bi-name="secondary-nav-link-3-defender">
+      <span><!---->Defender<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dotnet/" data-bi-name="secondary-nav-link-4-dotnet">
+      <span><!---->.NET<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/github/" data-bi-name="secondary-nav-link-5-github">
+      <span><!---->GitHub<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/m365/" data-bi-name="secondary-nav-link-6-microsoft-365">
+      <span><!---->Microsoft 365<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/entra/" data-bi-name="secondary-nav-link-7-microsoft-entra">
+      <span><!---->Microsoft Entra<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/fabric/" data-bi-name="secondary-nav-link-8-microsoft-fabric">
+      <span><!---->Microsoft Fabric<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/powerplatform/" data-bi-name="secondary-nav-link-9-power-platform">
+      <span><!---->Power Platform<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/purview/" data-bi-name="secondary-nav-link-10-purview">
+      <span><!---->Purview<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/teams/" data-bi-name="secondary-nav-link-11-teams">
+      <span><!---->Teams<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-12-browse-all-training">
+      <span><!---->Browse all training<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-93" data-bi-name="secondary-nav-btn-2-career-paths" value="career-paths">
+    <span><!---->Career Paths<!----></span>
+    <span aria-hidden="true" class="icon expanded-indicator ">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-93" aria-label="Career Paths" data-bi-name="secondary-nav-menu-2-career-paths">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/administrator/" data-bi-name="secondary-nav-link-1-administrator">
+      <span><!---->Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/ai-engineer/" data-bi-name="secondary-nav-link-2-ai-engineer">
+      <span><!---->AI Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/app-maker/" data-bi-name="secondary-nav-link-3-app-maker">
+      <span><!---->App Maker<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/business-user/" data-bi-name="secondary-nav-link-4-business-user">
+      <span><!---->Business User<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-analyst/" data-bi-name="secondary-nav-link-5-data-analyst">
+      <span><!---->Data Analyst<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-engineer/" data-bi-name="secondary-nav-link-6-data-engineer">
+      <span><!---->Data Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-scientist/" data-bi-name="secondary-nav-link-7-data-scientist">
+      <span><!---->Data Scientist<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/developer/" data-bi-name="secondary-nav-link-8-developer">
+      <span><!---->Developer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/devops-engineer/" data-bi-name="secondary-nav-link-9-devops-engineer">
+      <span><!---->DevOps Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/functional-consultant/" data-bi-name="secondary-nav-link-10-functional-consultant">
+      <span><!---->Functional Consultant<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/identity-and-access-admin/" data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
+      <span><!---->Identity and Access Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/information-protection-admin/" data-bi-name="secondary-nav-link-12-information-protection-administrator">
+      <span><!---->Information Protection Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-operations-analyst/" data-bi-name="secondary-nav-link-13-security-operations-analyst">
+      <span><!---->Security Operations Analyst<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-engineer/" data-bi-name="secondary-nav-link-14-security-engineer">
+      <span><!---->Security Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/solution-architect/" data-bi-name="secondary-nav-link-15-solutions-architect">
+      <span><!---->Solutions Architect<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li>
+     <a data-test-id="header-link-browse-all-training" class="has-external-link-indicator site-header-button " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-3-browse-all-training">
+      <span><!---->Browse all training<!----></span>
+     </a>
+    </li>
+    <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-94" data-bi-name="secondary-nav-btn-4-educator-center" value="educator-center">
+    <span><!---->Educator Center<!----></span>
+    <span aria-hidden="true" class="icon expanded-indicator ">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-94" aria-label="Educator Center" data-bi-name="secondary-nav-menu-4-educator-center">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/" data-bi-name="secondary-nav-link-1-overview">
+      <span><!---->Overview<!----></span>
+     </a>
+    </li>
+    <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-95" data-bi-name="secondary-nav-btn-2-professional-development" value="professional-development">
+    <span><!---->Professional development<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-95" aria-label="Professional development" data-bi-name="secondary-nav-menu-2-professional-development">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/accessibility/" data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
+      <span><!---->Accessibility and inclusivity<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/ai-for-education/" data-bi-name="secondary-nav-link-2-ai-for-education">
+      <span><!---->AI for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/blended-learning/" data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
+      <span><!---->Blended, remote, and hybrid learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/cybersecurity" data-bi-name="secondary-nav-link-4-cybersecurity">
+      <span><!---->Cybersecurity<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/education-leadership/" data-bi-name="secondary-nav-link-5-education-leadership-and-staff-collaboration">
+      <span><!---->Education leadership and staff collaboration<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/learning-accelerators/" data-bi-name="secondary-nav-link-6-learning-accelerators">
+      <span><!---->Learning Accelerators<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/instructional-toolbox/" data-bi-name="secondary-nav-link-7-microsoft-instructional-toolbox">
+      <span><!---->Microsoft instructional toolbox<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/social-emotional-learning/" data-bi-name="secondary-nav-link-8-social-emotional-learning">
+      <span><!---->Social emotional learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/stem/" data-bi-name="secondary-nav-link-9-stem-coding-and-esports">
+      <span><!---->STEM, coding, and esports<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/student-centered-learning/" data-bi-name="secondary-nav-link-10--student-centered-learning">
+      <span><!---->Student-centered learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/whats-new/" data-bi-name="secondary-nav-link-11-whats-happening-in-education">
+      <span><!---->What's happening in education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-12-browse-all">
+      <span><!---->Browse all<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-96" data-bi-name="secondary-nav-btn-3-product-guides" value="product-guides">
+    <span><!---->Product guides<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-96" aria-label="Product guides" data-bi-name="secondary-nav-menu-3-product-guides">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/teams/" data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
+      <span><!---->Microsoft Teams for Education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/onenote/" data-bi-name="secondary-nav-link-2-onenote-for-education">
+      <span><!---->OneNote for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/office/" data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
+      <span><!---->Microsoft 365 for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/minecraft/" data-bi-name="secondary-nav-link-4-minecraft-education">
+      <span><!---->Minecraft Education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/windows/" data-bi-name="secondary-nav-link-5-windows-for-education">
+      <span><!---->Windows for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/powerpoint/" data-bi-name="secondary-nav-link-6-powerpoint-for-education">
+      <span><!---->PowerPoint for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/immersive-reader/" data-bi-name="secondary-nav-link-7-immersive-reader">
+      <span><!---->Immersive Reader<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/reading-progress/" data-bi-name="secondary-nav-link-8-reading-progress">
+      <span><!---->Reading Progress<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/search-coach/" data-bi-name="secondary-nav-link-9-search-progress-and-coach">
+      <span><!---->Search Progress and Coach<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-10-browse-all">
+      <span><!---->Browse all<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/instructor-materials/" data-bi-name="secondary-nav-link-4-instructor-materials">
+      <span><!---->Instructor materials<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/programs/" data-bi-name="secondary-nav-link-5-educator-programs">
+      <span><!---->Educator programs<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-97" data-bi-name="secondary-nav-btn-5-student-hub" value="student-hub">
+    <span><!---->Student Hub<!----></span>
+    <span aria-hidden="true" class="icon expanded-indicator ">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-97" aria-label="Student Hub" data-bi-name="secondary-nav-menu-5-student-hub">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/" data-bi-name="secondary-nav-link-1-overview">
+      <span><!---->Overview<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/certifications/" data-bi-name="secondary-nav-link-2-student-certifications">
+      <span><!---->Student certifications<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li>
+     <a data-test-id="header-link-faq-&amp;-help" class="has-external-link-indicator site-header-button " href="https://learn.microsoft.com/en-gb/training/support/" data-bi-name="secondary-nav-link-6-faq-and-help">
+      <span><!---->FAQ &amp; Help<!----></span>
+     </a>
+    </li>
+    <!---->
+  <li class="dropdown" hidden="">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-98" data-bi-name="secondary-nav-btn-more" value="undefined">
+    <span><!---->More<!----></span>
+    <span aria-hidden="true" class="icon expanded-indicator ">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-98" aria-label="More" data-bi-name="secondary-nav-menu-more">
+    <!---->
+  <li class="dropdown" hidden="">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button is-active width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-current="true" aria-controls="bx-99" data-bi-name="secondary-nav-btn-1-products" value="products">
+    <span><!---->Products<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-99" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/azure/" data-bi-name="secondary-nav-link-1-azure">
+      <span><!---->Azure<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dynamics365/" data-bi-name="secondary-nav-link-2-dynamics-365">
+      <span><!---->Dynamics 365<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/defender/" data-bi-name="secondary-nav-link-3-defender">
+      <span><!---->Defender<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/dotnet/" data-bi-name="secondary-nav-link-4-dotnet">
+      <span><!---->.NET<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/github/" data-bi-name="secondary-nav-link-5-github">
+      <span><!---->GitHub<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/m365/" data-bi-name="secondary-nav-link-6-microsoft-365">
+      <span><!---->Microsoft 365<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/entra/" data-bi-name="secondary-nav-link-7-microsoft-entra">
+      <span><!---->Microsoft Entra<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/fabric/" data-bi-name="secondary-nav-link-8-microsoft-fabric">
+      <span><!---->Microsoft Fabric<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/powerplatform/" data-bi-name="secondary-nav-link-9-power-platform">
+      <span><!---->Power Platform<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/purview/" data-bi-name="secondary-nav-link-10-purview">
+      <span><!---->Purview<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/teams/" data-bi-name="secondary-nav-link-11-teams">
+      <span><!---->Teams<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-12-browse-all-training">
+      <span><!---->Browse all training<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown" hidden="">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-100" data-bi-name="secondary-nav-btn-2-career-paths" value="career-paths">
+    <span><!---->Career Paths<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-100" aria-label="Career Paths" data-bi-name="secondary-nav-menu-2-career-paths">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/administrator/" data-bi-name="secondary-nav-link-1-administrator">
+      <span><!---->Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/ai-engineer/" data-bi-name="secondary-nav-link-2-ai-engineer">
+      <span><!---->AI Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/app-maker/" data-bi-name="secondary-nav-link-3-app-maker">
+      <span><!---->App Maker<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/business-user/" data-bi-name="secondary-nav-link-4-business-user">
+      <span><!---->Business User<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-analyst/" data-bi-name="secondary-nav-link-5-data-analyst">
+      <span><!---->Data Analyst<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-engineer/" data-bi-name="secondary-nav-link-6-data-engineer">
+      <span><!---->Data Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/data-scientist/" data-bi-name="secondary-nav-link-7-data-scientist">
+      <span><!---->Data Scientist<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/developer/" data-bi-name="secondary-nav-link-8-developer">
+      <span><!---->Developer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/devops-engineer/" data-bi-name="secondary-nav-link-9-devops-engineer">
+      <span><!---->DevOps Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/functional-consultant/" data-bi-name="secondary-nav-link-10-functional-consultant">
+      <span><!---->Functional Consultant<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/identity-and-access-admin/" data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
+      <span><!---->Identity and Access Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/information-protection-admin/" data-bi-name="secondary-nav-link-12-information-protection-administrator">
+      <span><!---->Information Protection Administrator<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-operations-analyst/" data-bi-name="secondary-nav-link-13-security-operations-analyst">
+      <span><!---->Security Operations Analyst<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/security-engineer/" data-bi-name="secondary-nav-link-14-security-engineer">
+      <span><!---->Security Engineer<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/career-paths/solution-architect/" data-bi-name="secondary-nav-link-15-solutions-architect">
+      <span><!---->Solutions Architect<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li hidden="">
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/" data-bi-name="secondary-nav-link-3-browse-all-training">
+      <span><!---->Browse all training<!----></span>
+     </a>
+    </li>
+    <!---->
+  <li class="dropdown" hidden="">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-101" data-bi-name="secondary-nav-btn-4-educator-center" value="educator-center">
+    <span><!---->Educator Center<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-101" aria-label="Educator Center" data-bi-name="secondary-nav-menu-4-educator-center">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/" data-bi-name="secondary-nav-link-1-overview">
+      <span><!---->Overview<!----></span>
+     </a>
+    </li>
+    <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-102" data-bi-name="secondary-nav-btn-2-professional-development" value="professional-development">
+    <span><!---->Professional development<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-102" aria-label="Professional development" data-bi-name="secondary-nav-menu-2-professional-development">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/accessibility/" data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
+      <span><!---->Accessibility and inclusivity<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/ai-for-education/" data-bi-name="secondary-nav-link-2-ai-for-education">
+      <span><!---->AI for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/blended-learning/" data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
+      <span><!---->Blended, remote, and hybrid learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/cybersecurity" data-bi-name="secondary-nav-link-4-cybersecurity">
+      <span><!---->Cybersecurity<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/education-leadership/" data-bi-name="secondary-nav-link-5-education-leadership-and-staff-collaboration">
+      <span><!---->Education leadership and staff collaboration<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/learning-accelerators/" data-bi-name="secondary-nav-link-6-learning-accelerators">
+      <span><!---->Learning Accelerators<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/instructional-toolbox/" data-bi-name="secondary-nav-link-7-microsoft-instructional-toolbox">
+      <span><!---->Microsoft instructional toolbox<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/social-emotional-learning/" data-bi-name="secondary-nav-link-8-social-emotional-learning">
+      <span><!---->Social emotional learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/stem/" data-bi-name="secondary-nav-link-9-stem-coding-and-esports">
+      <span><!---->STEM, coding, and esports<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/student-centered-learning/" data-bi-name="secondary-nav-link-10--student-centered-learning">
+      <span><!---->Student-centered learning<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/topics/whats-new/" data-bi-name="secondary-nav-link-11-whats-happening-in-education">
+      <span><!---->What's happening in education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-12-browse-all">
+      <span><!---->Browse all<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-103" data-bi-name="secondary-nav-btn-3-product-guides" value="product-guides">
+    <span><!---->Product guides<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-103" aria-label="Product guides" data-bi-name="secondary-nav-menu-3-product-guides">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/teams/" data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
+      <span><!---->Microsoft Teams for Education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/onenote/" data-bi-name="secondary-nav-link-2-onenote-for-education">
+      <span><!---->OneNote for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/office/" data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
+      <span><!---->Microsoft 365 for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/minecraft/" data-bi-name="secondary-nav-link-4-minecraft-education">
+      <span><!---->Minecraft Education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/windows/" data-bi-name="secondary-nav-link-5-windows-for-education">
+      <span><!---->Windows for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/powerpoint/" data-bi-name="secondary-nav-link-6-powerpoint-for-education">
+      <span><!---->PowerPoint for education<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/immersive-reader/" data-bi-name="secondary-nav-link-7-immersive-reader">
+      <span><!---->Immersive Reader<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/reading-progress/" data-bi-name="secondary-nav-link-8-reading-progress">
+      <span><!---->Reading Progress<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/product-guides/search-coach/" data-bi-name="secondary-nav-link-9-search-progress-and-coach">
+      <span><!---->Search Progress and Coach<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian" data-bi-name="secondary-nav-link-10-browse-all">
+      <span><!---->Browse all<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/instructor-materials/" data-bi-name="secondary-nav-link-4-instructor-materials">
+      <span><!---->Instructor materials<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/educator-center/programs/" data-bi-name="secondary-nav-link-5-educator-programs">
+      <span><!---->Educator programs<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+  <li class="dropdown" hidden="">
+   <button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-104" data-bi-name="secondary-nav-btn-5-student-hub" value="student-hub">
+    <span><!---->Student Hub<!----></span>
+    <span aria-hidden="true" class="icon  margin-left-xs">
+     <span class="docon docon-chevron-right-light"></span>
+    </span>
+   </button>
+   <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-104" aria-label="Student Hub" data-bi-name="secondary-nav-menu-5-student-hub">
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/" data-bi-name="secondary-nav-link-1-overview">
+      <span><!---->Overview<!----></span>
+     </a>
+    </li>
+    <!---->
+    <li>
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/student-hub/certifications/" data-bi-name="secondary-nav-link-2-student-certifications">
+      <span><!---->Student certifications<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+    <li hidden="">
+     <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://learn.microsoft.com/en-gb/training/support/" data-bi-name="secondary-nav-link-6-faq-and-help">
+      <span><!---->FAQ &amp; Help<!----></span>
+     </a>
+    </li>
+    <!---->
+   </ul>
+  </li>
+ <!---->
+   </ul>
+  </nav>
+ 
+  <span class="nav-bar-spacer"></span>
+   
+  <div id="level-status-container" class="display-flex align-items-center is-hidden-touch flex-shrink-0">
+   <div id="level-status" class="position-relative level margin-inline-xxs"><!---->
+ <span id="level-status-text" class="font-size-xs has-text-wrap is-inline-truncated is-uppercase font-weight-semibold">Level 6</span>
+ <span id="level-status-progress-container" class="hexagonal-progress">
+  <progress id="level-status-progress" class="progress-bar progress-bar-success is-hidden-mobile display-inline-block position-relative border-radius-none" value="89" max="100">89%</progress>
+  <span class="hexagonal-progress-marker"></span>
+ </span>
+ <span id="level-status-points" class="font-size-xs has-text-wrap is-inline-truncated is-uppercase"><!----> <span class="font-weight-semibold"> 10125 </span>/11299 XP<!----><!----></span>
 <!----></div>
-		</div>
-	
-	 <!----></div><!----></div>
-			</header>
-			
-		<!-- banner -->
-		<div data-banner="">
-			<div id="disclaimer-holder"></div>
-			
-		</div>
-		<!-- banner end -->
-	
-		</div>
-	</header>
-				 
+  </div>
+ 
+  <!----></div><!----></div>
+   </header>
+   
+  <!-- banner -->
+  <div data-banner="">
+   <div id="disclaimer-holder"></div>
+   
+  </div>
+  <!-- banner end -->
+ 
+  </div>
+ </header>
+     
 
-				<main id="main" role="main" class="layout-body-main has-body-background-dark" data-bi-name="content" lang="en-us" dir="ltr">
-					
-			<div data-main-column="">
-				<!-- Article header -->
-				<div class="background-color-body">
-		<div id="article-header" class="background-color-body display-none-print">
-			<div class="display-flex align-items-center justify-content-space-between uhf-container">
-				
-		<details id="article-header-breadcrumbs-overflow-popover" class="popover" data-for="article-header-breadcrumbs" hidden="">
-			<summary class="button button-clear button-primary button-sm inner-focus" aria-label="All breadcrumbs">
-				<span class="icon">
-					<span class="docon docon-more"></span>
-				</span>
-			</summary>
-			<div id="article-header-breadcrumbs-overflow" class="popover-content padding-none"><!---->
-				<nav>
-					<ol class="list-style-none">
-						<!---->
-									<li class="line-clamp-1">
-										<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/">
-											Learn
-										</a>
-									</li>
-								<!----><!---->
-									<li class="line-clamp-1">
-										<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/">
-											Training
-										</a>
-									</li>
-								<!----><!---->
-									<li class="line-clamp-1">
-										<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/browse/">
-											Browse
-										</a>
-									</li>
-								<!----><!---->
-									<li class="line-clamp-1">
-										<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/paths/work-with-data-warehouses-using-microsoft-fabric/">
-											Implement a data warehouse with Microsoft Fabric
-										</a>
-									</li>
-								<!----><!---->
-									<li class="line-clamp-1">
-										<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/">
-											Load data into a Microsoft Fabric data warehouse
-										</a>
-									</li>
-								<!---->
-					</ol>
-				</nav>
-				
-			<!----></div>
-		</details>
+    <main id="main" role="main" class="layout-body-main has-body-background-dark" data-bi-name="content" lang="en-us" dir="ltr">
+     
+   <div data-main-column="">
+    <!-- Article header -->
+    <div class="background-color-body">
+  <div id="article-header" class="background-color-body display-none-print">
+   <div class="display-flex align-items-center justify-content-space-between uhf-container">
+    
+  <details id="article-header-breadcrumbs-overflow-popover" class="popover" data-for="article-header-breadcrumbs" hidden="">
+   <summary class="button button-clear button-primary button-sm inner-focus" aria-label="All breadcrumbs">
+    <span class="icon">
+     <span class="docon docon-more"></span>
+    </span>
+   </summary>
+   <div id="article-header-breadcrumbs-overflow" class="popover-content padding-none"><!---->
+    <nav>
+     <ol class="list-style-none">
+      <!---->
+         <li class="line-clamp-1">
+          <a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/">
+           Learn
+          </a>
+         </li>
+        <!----><!---->
+         <li class="line-clamp-1">
+          <a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/">
+           Training
+          </a>
+         </li>
+        <!----><!---->
+         <li class="line-clamp-1">
+          <a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/browse/">
+           Browse
+          </a>
+         </li>
+        <!----><!---->
+         <li class="line-clamp-1">
+          <a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/paths/work-with-data-warehouses-using-microsoft-fabric/">
+           Implement a data warehouse with Microsoft Fabric
+          </a>
+         </li>
+        <!----><!---->
+         <li class="line-clamp-1">
+          <a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/">
+           Load data into a Microsoft Fabric data warehouse
+          </a>
+         </li>
+        <!---->
+     </ol>
+    </nav>
+    
+   <!----></div>
+  </details>
 
-		<bread-crumbs id="article-header-breadcrumbs" data-test-id="article-header-breadcrumbs" class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs" style="display: block; white-space: nowrap; overflow: hidden;"><!---->
-				<nav>
-					<ol class="breadcrumbs">
-						<!---->
-									<li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
-										<a href="https://learn.microsoft.com/en-gb/"> Learn </a>
-									</li>
-								<!----><!---->
-									<li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
-										<a href="https://learn.microsoft.com/en-gb/training/"> Training </a>
-									</li>
-								<!----><!---->
-									<li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
-										<a href="https://learn.microsoft.com/en-gb/training/browse/"> Browse </a>
-									</li>
-								<!----><!---->
-									<li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
-										<a href="https://learn.microsoft.com/en-gb/training/paths/work-with-data-warehouses-using-microsoft-fabric/"> Implement a data warehouse with Microsoft Fabric </a>
-									</li>
-								<!----><!---->
-									<li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="" style="">
-										<a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/" style=""> Load data into a Microsoft Fabric data warehouse </a>
-									</li>
-								<!---->
-					</ol>
-				</nav>
-			<!----></bread-crumbs>
-	 
-		<div id="article-header-page-actions" class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch">
-			  
-		<a id="lang-link-tablet" class="button button-primary button-clear button-sm display-none display-inline-flex-tablet" title="Read in English" data-bi-name="language-toggle" data-read-in-link="" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" hidden="" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
-			<span class="icon margin-none" aria-hidden="true" data-read-in-link-icon="">
-				<span class="docon docon-locale-globe"></span>
-			</span>
-			<span class="is-visually-hidden" data-read-in-link-text="">Read in English</span>
-		</a>
-	 
-		<details class="popover popover-right add-item-popover"><!---->
-		<summary data-bi-name="add-to-list" aria-describedby="popover-content" aria-expanded="false" class="button button-clear button-sm button-primary display-none display-inline-flex-tablet" data-list-type="collection" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-list-source="module" data-resource-type="" aria-label="Add">
-			
-			<span class="icon margin-none" aria-hidden="true">
-				<span class="docon docon-circle-addition"></span>
-			</span>
-			<span class="collection-status is-visually-hidden">Save</span>
-		
-		</summary>
-		<div class="popover-content">
-			<button type="button" class="button button-clear button-sm button-block inner-focus justify-content-flex-start text-align-left" data-list-type="collection" data-bi-name="add-to-collections" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a collection">
-				<span class="icon" aria-hidden="true">
-					<span class="docon docon-circle-addition"></span>
-				</span>
-				<span class="collection-status">Add to Collections</span>
-			</button>
-			<button type="button" class="button button-clear button-sm button-block inner-focus justify-content-flex-start text-align-left" data-list-type="plan" data-bi-name="add-to-plans" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a plan">
-				<span class="icon" aria-hidden="true">
-					<span class="docon docon-circle-addition"></span>
-				</span>
-				<span class="plan-status">Add to plan</span>
-			</button>
-			
-		</div>
-	<!----></details>
-	 
-			
+  <bread-crumbs id="article-header-breadcrumbs" data-test-id="article-header-breadcrumbs" class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs" style="display: block; white-space: nowrap; overflow: hidden;"><!---->
+    <nav>
+     <ol class="breadcrumbs">
+      <!---->
+         <li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+          <a href="https://learn.microsoft.com/en-gb/"> Learn </a>
+         </li>
+        <!----><!---->
+         <li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+          <a href="https://learn.microsoft.com/en-gb/training/"> Training </a>
+         </li>
+        <!----><!---->
+         <li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+          <a href="https://learn.microsoft.com/en-gb/training/browse/"> Browse </a>
+         </li>
+        <!----><!---->
+         <li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+          <a href="https://learn.microsoft.com/en-gb/training/paths/work-with-data-warehouses-using-microsoft-fabric/"> Implement a data warehouse with Microsoft Fabric </a>
+         </li>
+        <!----><!---->
+         <li data-test-id="breadcrumbs-item-link" class="breadcrumbs-item" data-bread-crumbs-collapse-target="" style="">
+          <a href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/" style=""> Load data into a Microsoft Fabric data warehouse </a>
+         </li>
+        <!---->
+     </ol>
+    </nav>
+   <!----></bread-crumbs>
+  
+  <div id="article-header-page-actions" class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch">
+     
+  <a id="lang-link-tablet" class="button button-primary button-clear button-sm display-none display-inline-flex-tablet" title="Read in English" data-bi-name="language-toggle" data-read-in-link="" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" hidden="" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+   <span class="icon margin-none" aria-hidden="true" data-read-in-link-icon="">
+    <span class="docon docon-locale-globe"></span>
+   </span>
+   <span class="is-visually-hidden" data-read-in-link-text="">Read in English</span>
+  </a>
+  
+  <details class="popover popover-right add-item-popover"><!---->
+  <summary data-bi-name="add-to-list" aria-describedby="popover-content" aria-expanded="false" class="button button-clear button-sm button-primary display-none display-inline-flex-tablet" data-list-type="collection" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-list-source="module" data-resource-type="" aria-label="Add">
+   
+   <span class="icon margin-none" aria-hidden="true">
+    <span class="docon docon-circle-addition"></span>
+   </span>
+   <span class="collection-status is-visually-hidden">Save</span>
+  
+  </summary>
+  <div class="popover-content">
+   <button type="button" class="button button-clear button-sm button-block inner-focus justify-content-flex-start text-align-left" data-list-type="collection" data-bi-name="add-to-collections" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a collection">
+    <span class="icon" aria-hidden="true">
+     <span class="docon docon-circle-addition"></span>
+    </span>
+    <span class="collection-status">Add to Collections</span>
+   </button>
+   <button type="button" class="button button-clear button-sm button-block inner-focus justify-content-flex-start text-align-left" data-list-type="plan" data-bi-name="add-to-plans" data-list-item-title="Introduction - Training | Microsoft Learn" data-list-item-url="/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a plan">
+    <span class="icon" aria-hidden="true">
+     <span class="docon docon-circle-addition"></span>
+    </span>
+    <span class="plan-status">Add to plan</span>
+   </button>
+   
+  </div>
+ <!----></details>
+  
+   
 
-			<details class="popover popover-right display-none-tablet" id="article-header-page-actions-overflow" data-reset-required="display-none-tablet">
-				<summary class="justify-content-flex-start button button-clear button-sm button-primary" aria-label="More actions" title="More actions">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-more-vertical"></span>
-					</span>
-				</summary>
-				<div class="popover-content">
-					 
-		<a id="lang-link-overflow" class="button-sm has-inner-focus button button-clear button-block justify-content-flex-start text-align-left display-none-tablet" title="Read in English" data-bi-name="language-toggle" data-page-action-item="overflow-mobile" data-check-hidden="true" data-read-in-link="" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" hidden="" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
-			<span class="icon" aria-hidden="true" data-read-in-link-icon="">
-				<span class="docon docon-locale-globe"></span>
-			</span>
-			<span data-read-in-link-text="">Read in English</span>
-		</a>
-	 
-		<button type="button" class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none-tablet" data-list-type="collection" data-bi-name="collection" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a collection">
-			<span class="icon" aria-hidden="true">
-				<span class="docon docon-circle-addition"></span>
-			</span>
-			<span class="collection-status">Add to Collections</span>
-		</button>
-	
-					
-		<button type="button" class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus display-none-tablet" data-list-type="plan" data-bi-name="plan" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a plan">
-			<span class="icon" aria-hidden="true">
-				<span class="docon docon-circle-addition"></span>
-			</span>
-			<span class="plan-status">Add to plan</span>
-		</button>
-	   
-				</div>
-			</details>
-		</div>
-	
-			</div>
-		</div>
-	</div>
-				<!-- Unit navigation menu -->
-				
-		<div class="background-color-body-medium position-sticky" style="z-index: 1020; inset-block-start: -1px;">
-			<div class="modular-content-container padding-block-xxs">
-				<nav class="display-flex justify-content-center position-relative" aria-label="pagination" data-bi-name="module-nav">
-					<ul id="unit-nav-dropdown">
-						<li class="dropdown has-centered-menu has-caret" data-bi-name="unit-menu">
-							<button type="button" aria-controls="module-menu" aria-expanded="false" class="button button-clear button-sm dropdown-trigger" data-bi-name="dropdown-trigger" title="Module menu">
-								<span id="unit-place">Unit 1 of 8</span>
-								<span aria-hidden="true" class="icon">
-									<span class="docon docon-chevron-down-light expanded-indicator"></span>
-								</span>
-							</button>
-							<div class="dropdown-menu width-300 width-450-desktop background-color-body" id="module-menu"><!---->
-		<div class="nav-box">
-			<h2 class="nav-box-title font-size-md margin-top-none"><!---->Load data into a Microsoft Fabric data warehouse<!----></h2>
-			<ul class="margin-none font-size-sm has-text-subtle is-unstyled" data-bi-name="module-menu-links">
-				<!----> <li class="nav-box-line module-navigation-item completable is-unstyled is-current is-complete" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction/" aria-current="page">
-							<span><!---->Introduction<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->4 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.explore-data-load-strategies" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.explore-data-load-strategies">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/2-explore-data-load-strategies/">
-							<span><!---->Explore data load strategies<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->6 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-data-pipeline" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-data-pipeline">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/3-load-data-using-data-pipeline/">
-							<span><!---->Use data pipelines to load a warehouse<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->5 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-tsql" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-tsql">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/4-load-data-using-tsql/">
-							<span><!---->Load data using T-SQL<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->8 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-dataflow" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-dataflow">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/5-load-data-using-dataflow/">
-							<span><!---->Load and transform data with Dataflow Gen2<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->7 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.exercise-load-data-into-warehouse" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.exercise-load-data-into-warehouse">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/6-exercise-load-data-into-warehouse/">
-							<span><!---->Exercise: Load data into a warehouse in Microsoft Fabric<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->30 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.knowledge-check" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.knowledge-check">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/7-knowledge-check/">
-							<span><!---->Module assessment<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->10 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.summary" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.summary">
-						<a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/8-summary/">
-							<span><!---->Summary<!----></span>
-							<div>
-								<span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->2 min<!----></span>
-								<span class="is-shown-complete has-text-success docon docon-check">
-									<span class="is-visually-hidden">: Completed<!----></span>
-								</span>
-							</div>
-						</a>
-					</li><!---->
-			</ul>
-		</div>
-	<!----></div>
-						</li>
-					</ul>
-					<div id="completion-nav" class="is-hidden font-weight-semibold">
-						Achievements
-					</div>
-					
-		<button class="button button-sm border-none display-none-tablet flex-shrink-0 position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-modal-entry-mobile" data-ask-learn-modal-entry="" type="button" style="min-width: max-content;" aria-expanded="false" aria-label="Ask Learn">
-			<span class="icon font-size-lg" aria-hidden="true">
-				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
-			</span>
-		</button>
-		<button class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-modal-entry-tablet" data-ask-learn-modal-entry="" type="button" style="min-width: max-content;" aria-expanded="false">
-			<span class="icon font-size-lg" aria-hidden="true">
-				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
-			</span>
-			<span>Ask Learn</span>
-		</button>
-		<button class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-flyout-entry" data-ask-learn-flyout-entry="" data-flyout-button="toggle" type="button" style="min-width: max-content;" aria-expanded="false" aria-controls="ask-learn-flyout">
-			<span class="icon font-size-lg" aria-hidden="true">
-				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
-			</span>
-			<span>Ask Learn</span>
-		</button>
-	
-				</nav>
-			</div>
-		</div>
-	
-				<!-- Main content area -->
-				<div class="content"><div class="modular-content-container has-body-background box">
-	<div id="unit-inner-section" class="section is-uniform position-relative">
-		<h1 id="module-unit-title" class="margin-right-xxl-desktop">Introduction</h1>
-		<div data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction" class="xp-tag position-absolute top-0 right-0 margin-top-xs margin-top-sm-tablet margin-top-lg-desktop margin-top-xs-interactive margin-right-sm margin-right-lg-tablet margin-right-sm-interactive is-complete">
-			<div class="xp-tag-hexagon">
-				<span class="xp-tag-icon is-shown-complete docon docon-check">
-					<span class="visually-hidden">Completed</span>
-				</span>
-				<span class="xp-tag-xp">100 XP</span>
-			</div>
-		</div>
-		<ul id="module-unit-metadata" class="metadata page-metadata">
-			<li id="module-unit-total-time">4 minutes</li>
-		</ul>
-		
-		<div id="module-unit-module-assessment-message-container" aria-hidden="true" hidden=""></div>
+   <details class="popover popover-right display-none-tablet" id="article-header-page-actions-overflow" data-reset-required="display-none-tablet">
+    <summary class="justify-content-flex-start button button-clear button-sm button-primary" aria-label="More actions" title="More actions">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-more-vertical"></span>
+     </span>
+    </summary>
+    <div class="popover-content">
+      
+  <a id="lang-link-overflow" class="button-sm has-inner-focus button button-clear button-block justify-content-flex-start text-align-left display-none-tablet" title="Read in English" data-bi-name="language-toggle" data-page-action-item="overflow-mobile" data-check-hidden="true" data-read-in-link="" href="https://learn.microsoft.com/en-us/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction" hidden="" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+   <span class="icon" aria-hidden="true" data-read-in-link-icon="">
+    <span class="docon docon-locale-globe"></span>
+   </span>
+   <span data-read-in-link-text="">Read in English</span>
+  </a>
+  
+  <button type="button" class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none-tablet" data-list-type="collection" data-bi-name="collection" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a collection">
+   <span class="icon" aria-hidden="true">
+    <span class="docon docon-circle-addition"></span>
+   </span>
+   <span class="collection-status">Add to Collections</span>
+  </button>
+ 
+     
+  <button type="button" class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus display-none-tablet" data-list-type="plan" data-bi-name="plan" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false" title="Add Introduction - Training | Microsoft Learn to a plan">
+   <span class="icon" aria-hidden="true">
+    <span class="docon docon-circle-addition"></span>
+   </span>
+   <span class="plan-status">Add to plan</span>
+  </button>
+    
+    </div>
+   </details>
+  </div>
+ 
+   </div>
+  </div>
+ </div>
+    <!-- Unit navigation menu -->
+    
+  <div class="background-color-body-medium position-sticky" style="z-index: 1020; inset-block-start: -1px;">
+   <div class="modular-content-container padding-block-xxs">
+    <nav class="display-flex justify-content-center position-relative" aria-label="pagination" data-bi-name="module-nav">
+     <ul id="unit-nav-dropdown">
+      <li class="dropdown has-centered-menu has-caret" data-bi-name="unit-menu">
+       <button type="button" aria-controls="module-menu" aria-expanded="false" class="button button-clear button-sm dropdown-trigger" data-bi-name="dropdown-trigger" title="Module menu">
+        <span id="unit-place">Unit 1 of 8</span>
+        <span aria-hidden="true" class="icon">
+         <span class="docon docon-chevron-down-light expanded-indicator"></span>
+        </span>
+       </button>
+       <div class="dropdown-menu width-300 width-450-desktop background-color-body" id="module-menu"><!---->
+  <div class="nav-box">
+   <h2 class="nav-box-title font-size-md margin-top-none"><!---->Load data into a Microsoft Fabric data warehouse<!----></h2>
+   <ul class="margin-none font-size-sm has-text-subtle is-unstyled" data-bi-name="module-menu-links">
+    <!----> <li class="nav-box-line module-navigation-item completable is-unstyled is-current is-complete" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/1-introduction/" aria-current="page">
+       <span><!---->Introduction<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->4 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.explore-data-load-strategies" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.explore-data-load-strategies">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/2-explore-data-load-strategies/">
+       <span><!---->Explore data load strategies<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->6 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-data-pipeline" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-data-pipeline">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/3-load-data-using-data-pipeline/">
+       <span><!---->Use data pipelines to load a warehouse<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->5 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-tsql" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-tsql">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/4-load-data-using-tsql/">
+       <span><!---->Load data using T-SQL<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->8 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-dataflow" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.load-data-using-dataflow">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/5-load-data-using-dataflow/">
+       <span><!---->Load and transform data with Dataflow Gen2<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->7 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.exercise-load-data-into-warehouse" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.exercise-load-data-into-warehouse">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/6-exercise-load-data-into-warehouse/">
+       <span><!---->Exercise: Load data into a warehouse in Microsoft Fabric<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->30 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.knowledge-check" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.knowledge-check">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/7-knowledge-check/">
+       <span><!---->Module assessment<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->10 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!----> <li class="nav-box-line module-navigation-item completable is-unstyled" data-nav-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.summary" data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.summary">
+      <a class="line-item is-spaced has-inner-focus" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/8-summary/">
+       <span><!---->Summary<!----></span>
+       <div>
+        <span class="is-hidden-complete text-decoration-none has-no-wrap"><!---->2 min<!----></span>
+        <span class="is-shown-complete has-text-success docon docon-check">
+         <span class="is-visually-hidden">: Completed<!----></span>
+        </span>
+       </div>
+      </a>
+     </li><!---->
+   </ul>
+  </div>
+ <!----></div>
+      </li>
+     </ul>
+     <div id="completion-nav" class="is-hidden font-weight-semibold">
+      Achievements
+     </div>
+     
+  <button class="button button-sm border-none display-none-tablet flex-shrink-0 position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-modal-entry-mobile" data-ask-learn-modal-entry="" type="button" style="min-width: max-content;" aria-expanded="false" aria-label="Ask Learn">
+   <span class="icon font-size-lg" aria-hidden="true">
+    <span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+   </span>
+  </button>
+  <button class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-modal-entry-tablet" data-ask-learn-modal-entry="" type="button" style="min-width: max-content;" aria-expanded="false">
+   <span class="icon font-size-lg" aria-hidden="true">
+    <span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+   </span>
+   <span>Ask Learn</span>
+  </button>
+  <button class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop position-absolute right-0 margin-right-xxs " data-bi-name="ask-learn-assistant-entry" data-test-id="ask-learn-assistant-flyout-entry" data-ask-learn-flyout-entry="" data-flyout-button="toggle" type="button" style="min-width: max-content;" aria-expanded="false" aria-controls="ask-learn-flyout">
+   <span class="icon font-size-lg" aria-hidden="true">
+    <span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+   </span>
+   <span>Ask Learn</span>
+  </button>
+ 
+    </nav>
+   </div>
+  </div>
+ 
+    <!-- Main content area -->
+    <div class="content"><div class="modular-content-container has-body-background box">
+ <div id="unit-inner-section" class="section is-uniform position-relative">
+  <h1 id="module-unit-title" class="margin-right-xxl-desktop">Introduction</h1>
+  <div data-progress-uid="learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction" class="xp-tag position-absolute top-0 right-0 margin-top-xs margin-top-sm-tablet margin-top-lg-desktop margin-top-xs-interactive margin-right-sm margin-right-lg-tablet margin-right-sm-interactive is-complete">
+   <div class="xp-tag-hexagon">
+    <span class="xp-tag-icon is-shown-complete docon docon-check">
+     <span class="visually-hidden">Completed</span>
+    </span>
+    <span class="xp-tag-xp">100 XP</span>
+   </div>
+  </div>
+  <ul id="module-unit-metadata" class="metadata page-metadata">
+   <li id="module-unit-total-time">4 minutes</li>
+  </ul>
+  
+  <div id="module-unit-module-assessment-message-container" aria-hidden="true" hidden=""></div>
         <div id="module-unit-notification-container" hidden=""></div>
-		<div id="module-unit-content" aria-hidden="false">
-				<p><a href="https://learn.microsoft.com/en-us/fabric/data-warehouse/" data-linktype="absolute-path" target="az-portal" class="has-external-link-indicator">Microsoft Fabric Data Warehouse</a> is a complete platform for data, analytics, and AI (Artificial Intelligence). It refers to the process of storing, organizing, and managing large volumes of structured and semi-structured data.</p>
+  <div id="module-unit-content" aria-hidden="false">
+    <p><a href="https://learn.microsoft.com/en-us/fabric/data-warehouse/" data-linktype="absolute-path" target="az-portal" class="has-external-link-indicator">Microsoft Fabric Data Warehouse</a> is a complete platform for data, analytics, and AI (Artificial Intelligence). It refers to the process of storing, organizing, and managing large volumes of structured and semi-structured data.</p>
 <p>Data warehouse in Microsoft Fabric is powered up with Synapse Analytics by offering a rich set of features that make it easier to manage and analyze data. It includes advanced query processing capabilities, and supports the full transactional T-SQL capabilities like an enterprise data warehouse.</p>
 <p>Unlike a dedicated SQL pool in Synapse Analytics, a warehouse in Microsoft Fabric is centered around a single data lake. The data in the Microsoft Fabric warehouse is stored in the Parquet file format. This setup allows users to focus on tasks such as data preparation, analysis, and reporting. It takes advantage of the SQL engine’s extensive capabilities, where a unique copy of their data is stored in <a href="https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview" data-linktype="absolute-path" target="az-portal" class="has-external-link-indicator">Microsoft OneLake</a>.</p>
 <p><span class="mx-imgBorder">
@@ -2515,11 +2516,11 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 <h2 id="understand-the-etl-extract-transform-and-load-process">Understand the ETL (Extract, Transform, and Load) process</h2>
 <p>ETL provides the foundation for data analytics and data warehouse workstreams. Let's review some aspects of data manipulation in an ETL process.</p>
 <div class="buttons buttons-right margin-bottom-none margin-top-sm"><!----> <button class="button button-clear button-sm display-flex gap-xxs">
-		<span class="icon" aria-hidden="true">
-			<span class="docon docon-expand color-primary"></span>
-		</span>
-		<span><!---->Expand table<!----></span>
-	</button><!----></div><div class="has-inner-focus"><table aria-label="Understand the ETL (Extract, Transform, and Load) process" class="table">
+  <span class="icon" aria-hidden="true">
+   <span class="docon docon-expand color-primary"></span>
+  </span>
+  <span><!---->Expand table<!----></span>
+ </button><!----></div><div class="has-inner-focus"><table aria-label="Understand the ETL (Extract, Transform, and Load) process" class="table">
 <thead>
 <tr>
 <th></th>
@@ -2548,364 +2549,364 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 <p>All these steps in the ETL process can run in parallel depending on the scenario. As soon as some data is ready, it's loaded without waiting for the previous steps to be completed.</p>
 <p>In the next units, we'll explore various ways of loading data in a warehouse, and how they can facilitate the tasks of building a data warehouse workload.</p>
 
-		</div>
-		<div id="next-section" class="modular-content-container"><div><hr class="hr"><div><!---->
-		<h2 class="title is-4 margin-top-none"><!---->Next unit: Explore data load strategies<!----></h2>
-		<div class="buttons">
-			
-			<a class="button button-primary button-filled" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/2-explore-data-load-strategies/" data-bi-name="continue">
-				<span><!---->Next<!----></span>
-				
-							<span class="icon" aria-hidden="true">
-								<span class="docon docon-chevron-right-light"></span>
-							</span>
-					  
-			</a>
-		</div>
-	<!----></div></div></div>
-	</div>
+  </div>
+  <div id="next-section" class="modular-content-container"><div><hr class="hr"><div><!---->
+  <h2 class="title is-4 margin-top-none"><!---->Next unit: Explore data load strategies<!----></h2>
+  <div class="buttons">
+   
+   <a class="button button-primary button-filled" href="https://learn.microsoft.com/en-gb/training/modules/load-data-into-microsoft-fabric-data-warehouse/2-explore-data-load-strategies/" data-bi-name="continue">
+    <span><!---->Next<!----></span>
+    
+       <span class="icon" aria-hidden="true">
+        <span class="docon docon-chevron-right-light"></span>
+       </span>
+       
+   </a>
+  </div>
+ <!----></div></div></div>
+ </div>
 </div>
 </div>
-				<!-- Feedback area -->
-				
-				<div class="modular-content-container margin-block-xs">
-					<section class="feedback-section section is-full-height is-uniform padding-block-none position-relative">
-						<div id="ms--unit-support-message" class="font-weight-semibold">Need help? See our <a id="troubleshooting-guide" class="has-text-primary" data-bi-name="troubleshooting" href="https://learn.microsoft.com/en-gb/training/support/troubleshooting?uid=learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction&amp;documentId=e1378b11-8268-565f-bf64-a52e63962259&amp;versionIndependentDocumentId=bd6d23ec-8f21-b331-9372-050af028a417&amp;platformId=147897eb-2089-fcb0-1f3f-c018888774b0&amp;contentPath=%2FMicrosoftDocs%2Flearn-pr%2Fblob%2Flive%2Flearn-pr%2Fwwl-data-ai%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction.yml&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction&amp;author=jupadrao">troubleshooting guide</a> or provide specific feedback by <a id="module-unit-feedback-link" class="has-text-primary" data-bi-name="feedback" href="https://learn.microsoft.com/en-gb/training/support/troubleshooting?uid=learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction&amp;documentId=e1378b11-8268-565f-bf64-a52e63962259&amp;versionIndependentDocumentId=bd6d23ec-8f21-b331-9372-050af028a417&amp;platformId=147897eb-2089-fcb0-1f3f-c018888774b0&amp;contentPath=%2FMicrosoftDocs%2Flearn-pr%2Fblob%2Flive%2Flearn-pr%2Fwwl-data-ai%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction.yml&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction&amp;author=jupadrao#report-feedback">reporting an issue</a>.</div>
-						<div id="ms--unit-user-feedback">
-							
-		<!-- feedback section -->
-		<section id="site-user-feedback-footer" class="font-size-sm margin-top-md display-none-print" data-test-id="site-user-feedback-footer" data-bi-name="site-feedback-section">
-			<hr class="hr">
-			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
-			<div class="display-flex flex-wrap-wrap align-items-center">
-				<p class="font-weight-semibold margin-xxs margin-left-none">
-					Was this page helpful?
-				</p>
-				<div class="buttons">
-					<button class="thumb-rating-button like button button-primary button-sm" data-test-id="footer-rating-yes" data-binary-rating-response="rating-yes" type="button" title="This article is helpful" data-bi-name="button-rating-yes" aria-pressed="false">
-						<span class="icon" aria-hidden="true">
-							<span class="docon docon-like"></span>
-						</span>
-						<span>Yes</span>
-					</button>
-					<button class="thumb-rating-button dislike button button-primary button-sm" data-test-id="footer-rating-no" data-binary-rating-response="rating-no" type="button" title="This article is not helpful" data-bi-name="button-rating-no" aria-pressed="false">
-						<span class="icon" aria-hidden="true">
-							<span class="docon docon-dislike"></span>
-						</span>
-						<span>No</span>
-					</button>
-				</div>
-			</div>
-			
-		</section>
-		<!-- end feedback section -->
-	
-						</div>
-					</section>
-				</div>
-		  
-				<!-- Interactive footer area -->
-				
-			</div>
-		
-				</main>
-				<aside id="layout-body-aside" class="layout-body-aside " data-bi-name="aside">
-					
-		<div id="interactive-container" class="interactive-container is-visible-interactive height-full has-body-background-dark display-none display-block-tablet"></div>
-	
-			  </aside> <section id="layout-body-flyout" class="layout-body-flyout " data-bi-name="flyout">
-					 <div class="height-full border-left background-color-body-medium" id="ask-learn-flyout"><!---->
-		<article class="chat-container  position-sticky top-0 " data-test-id="chat-ask-learn-flyout" data-chat-container-name="ask-learn-flyout">
-			<div class="chat-container-header">
-				<header class="display-flex justify-content-center align-items-center padding-xs">
-					<h2 class="font-size-md padding-right-xxs"><!---->
-		<div class="font-weight-semibold">
-			<span class="icon" aria-hidden="true">
-				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
-			</span>
-			<span><!---->Ask Learn<!----></span>
-		</div>
-	<!----></h2>
-					<span class="badge badge-filled badge-sm"><!---->Preview<!----></span>
-					<div class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch">
-						<button class="button button-clear justify-content-flex-start inner-focus" type="button" data-bi-name="reset" data-bi-an="ask-learn-assistant" aria-label="New chat">
-							<span class="icon" aria-hidden="true">
-								<span class="docon docon-chat-add"></span>
-							</span>
-						</button>
-						
-		<button type="button" class="button button-clear inner-focus modal-close" data-flyout-button="close" data-autofocus="" data-bi-an="ask-learn-assistant" data-bi-name="close-chat" aria-label="Close">
-			<span class="icon" aria-hidden="true">
-				<span class="docon docon-navigate-close"></span>
-			</span>
-		</button>
-	
-					</div>
-				</header>
-			</div>
-			
-		<div class="chat-container-body display-flex flex-direction-column padding-xs padding-right-xxs padding-top-none">
-			
-		<article>
-			<!---->
-					<div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
-						<div class="card-content padding-xxs margin-bottom-none">
-							<div class="display-flex gap-xxs align-items-baseline">
-								<span class="icon font-size-md color-text-subtle" aria-hidden="true">
-									<span class="docon docon-text-align-left"></span>
-								</span>
-								<div>
-									<button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-clarify">
-										<span><!---->Clarify<!----></span>
-									</button>
-									<div class="card-content-description margin-top-none">
-										<p><!---->Tell me more about [concept]<!----></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				<!---->
-					<div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
-						<div class="card-content padding-xxs margin-bottom-none">
-							<div class="display-flex gap-xxs align-items-baseline">
-								<span class="icon font-size-md color-text-subtle" aria-hidden="true">
-									<span class="docon docon-edit-outline"></span>
-								</span>
-								<div>
-									<button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-define">
-										<span><!---->Define<!----></span>
-									</button>
-									<div class="card-content-description margin-top-none">
-										<p><!---->Tell me the meaning of [term/concept]<!----></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				<!---->
-					<div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
-						<div class="card-content padding-xxs margin-bottom-none">
-							<div class="display-flex gap-xxs align-items-baseline">
-								<span class="icon font-size-md color-text-subtle" aria-hidden="true">
-									<span class="docon docon-chat-bubbles-question"></span>
-								</span>
-								<div>
-									<button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-guide">
-										<span><!---->Guide<!----></span>
-									</button>
-									<div class="card-content-description margin-top-none">
-										<p><!---->Tell me how to [concept]<!----></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				<!---->
-		</article>
-	
-			
-			<div data-scroll-into-view="chat-messages-container">
-				<!-- Left empty -->
-			</div>
-		</div>
-	 
-		<form class="chat-container-form background-color-body-medium padding-xs padding-top-xxs" data-chat-form-container-name="ask-learn-flyout">
-			
-		<div class="display-flex flex-wrap-wrap gap-xxs align-items-center margin-block-xxs">
-			<!-- Suggestion pills -->
-			
-			<!-- Prompt guide -->
-			<details class="popover popover-top popover-left">
-				<summary class="button button-clear button-sm" data-focus-on-cancel="ask-learn-flyout" aria-label="View prompts">
-					<span class="icon" aria-hidden="true">
-						<span class="docon docon-prompt"></span>
-					</span>
-					<span><!---->View prompts<!----></span>
-				</summary>
-				<div class="popover-content width-150 padding-inline-none">
-					<p class="font-weight-semibold margin-bottom-xxs margin-inline-xs">
-						Prompt guide
-					</p>
-					<!---->
-							<button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-clarify">
-								<span class="icon color-text-subtle" aria-hidden="true">
-									<span class="docon docon-text-align-left"></span>
-								</span>
-								<span><!---->Clarify<!----></span>
-							</button>
-						<!---->
-							<button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-define">
-								<span class="icon color-text-subtle" aria-hidden="true">
-									<span class="docon docon-edit-outline"></span>
-								</span>
-								<span><!---->Define<!----></span>
-							</button>
-						<!---->
-							<button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-guide">
-								<span class="icon color-text-subtle" aria-hidden="true">
-									<span class="docon docon-chat-bubbles-question"></span>
-								</span>
-								<span><!---->Guide<!----></span>
-							</button>
-						<!---->
-				</div>
-			</details>
-		</div>
-	
-			<div class="textarea-form">
-				
-		<textarea class="textarea" rows="1" data-chat-textarea-container-name="ask-learn-flyout" placeholder="Describe what you&#39;d like to do" aria-description="Maximum 500 characters"></textarea>
-	
-				<div class="textarea-form-help">
-					<div class="help help-danger"><!----><!----></div>
-				</div>
-				<div class="textarea-form-footer">
-					<div class="textarea-form-footer-left font-size-sm">
-						<span class="color-text-subtle">
-							0/500
-						</span>
-					</div>
-					<div class="textarea-form-footer-right">
-						<button type="button" data-bi-name="submit" data-bi-an="ask-learn-assistant" class="button button-clear button-lg inner-focus " aria-disabled="false" aria-label="Send">
-							<span class="icon" aria-hidden="true">
-								<span class="docon docon-chat-send"></span>
-							</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</form>
-	
-		</article>
-	<!----></div>
-			  </section> <div class="layout-body-footer is-hidden-interactive" data-bi-name="layout-footer">
-		<footer id="footer" data-test-id="footer" data-bi-name="footer" class="footer-layout has-padding has-default-focus border-top  uhf-container" role="contentinfo">
-			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
-				
-		<a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction" data-bi-name="select-locale" class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator" id="" title="" aria-label="Content language selector. Currently set to English (United Kingdom)."><span class="icon" aria-hidden="true"><span class="docon docon-world"></span></span><span class="local-selector-link-text">English (United Kingdom)</span></a>
-	
-				<div class="ccpa-privacy-link" data-ccpa-privacy-link="">
-		
-		<a data-mscc-ic="false" href="https://aka.ms/yourcaliforniaprivacychoices" data-bi-name="your-privacy-choices" class="button button-sm button-clear flex-shrink-0 external-link-indicator" id="" title="">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" xml:space="preserve" height="16" width="43" aria-hidden="true" focusable="false">
-			<path d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"></path>
-			<path d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"></path>
-			<path d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z" style="fill:#fff"></path>
-			<path d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z" style="fill:#06f"></path>
-		</svg>
-	
-			<span>Your Privacy Choices</span></a>
-	
-	</div>
-				<div class="flex-shrink-0">
-		<div class="dropdown has-caret-up">
-			<button data-test-id="theme-selector-button" class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="{{ themeMenuId }}" aria-expanded="false" title="Theme" data-bi-name="theme">
-				<span class="icon">
-					<span class="docon docon-sun" aria-hidden="true"></span>
-				</span>
-				<span>Theme</span>
-				<span class="icon expanded-indicator" aria-hidden="true">
-					<span class="docon docon-chevron-down-light"></span>
-				</span>
-			</button>
-			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
-				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu">
-					<li class="theme display-block">
-						<button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left" data-theme-to="light" aria-pressed="false">
-							<span class="theme-light margin-right-xxs">
-								<span class="theme-selector-icon border display-inline-block has-body-background" aria-hidden="true">
-									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
-										<rect width="22" height="14" class="has-fill-body-background"></rect>
-										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
-										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
-										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
-										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
-										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
-									</svg>
-								</span>
-							</span>
-							<span role="menuitem"> Light </span>
-						</button>
-					</li>
-					<li class="theme display-block">
-						<button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left is-selected" data-theme-to="dark" aria-pressed="true">
-							<span class="theme-dark margin-right-xxs">
-								<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
-									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
-										<rect width="22" height="14" class="has-fill-body-background"></rect>
-										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
-										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
-										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
-										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
-										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
-									</svg>
-								</span>
-							</span>
-							<span role="menuitem"> Dark </span>
-						</button>
-					</li>
-					<li class="theme display-block">
-						<button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left" data-theme-to="high-contrast" aria-pressed="false">
-							<span class="theme-high-contrast margin-right-xxs">
-								<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
-									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
-										<rect width="22" height="14" class="has-fill-body-background"></rect>
-										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
-										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
-										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
-										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
-										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
-										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
-									</svg>
-								</span>
-							</span>
-							<span role="menuitem"> High contrast </span>
-						</button>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-			</div>
-			<ul class="links" data-bi-name="footerlinks">
-				<li class="manage-cookies-holder" hidden=""></li>
-				<li>
-		
-		<a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/previous-versions/" data-bi-name="archivelink" class=" external-link-indicator" id="" title="">Previous Versions</a>
-	
-	</li> <li>
-		
-		<a data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink" class=" external-link-indicator" id="" title="">Blog</a>
-	
-	</li> <li>
-		
-		<a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/contribute" data-bi-name="contributorGuide" class=" external-link-indicator" id="" title="">Contribute</a>
-	
-	</li><li>
-		
-		<a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy" class=" external-link-indicator" id="" title="">Privacy</a>
-	
-	</li><li>
-		
-		<a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/legal/termsofuse" data-bi-name="termsofuse" class=" external-link-indicator" id="" title="">Terms of Use</a>
-	
-	</li><li>
-		
-		<a data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks" class=" external-link-indicator" id="" title="">Trademarks</a>
-	
-	</li>
-				<li>© Microsoft 2025</li>
-			</ul>
-		</footer>
-	
-			
-		</div><div role="alert" aria-live="assertive" aria-relevant="additions" aria-atomic="true" class="visually-hidden" id="assertive-live-region"></div><div role="status" aria-live="polite" aria-relevant="additions" aria-atomic="true" class="visually-hidden" id="polite-live-region"></div><script src="./Introduction - Training _ Microsoft Learn_files/at.js" async="" defer="" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous"></script><script src="./Introduction - Training _ Microsoft Learn_files/tex-mml-chtml.js" async="" defer="" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></body></html>
+    <!-- Feedback area -->
+    
+    <div class="modular-content-container margin-block-xs">
+     <section class="feedback-section section is-full-height is-uniform padding-block-none position-relative">
+      <div id="ms--unit-support-message" class="font-weight-semibold">Need help? See our <a id="troubleshooting-guide" class="has-text-primary" data-bi-name="troubleshooting" href="https://learn.microsoft.com/en-gb/training/support/troubleshooting?uid=learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction&amp;documentId=e1378b11-8268-565f-bf64-a52e63962259&amp;versionIndependentDocumentId=bd6d23ec-8f21-b331-9372-050af028a417&amp;platformId=147897eb-2089-fcb0-1f3f-c018888774b0&amp;contentPath=%2FMicrosoftDocs%2Flearn-pr%2Fblob%2Flive%2Flearn-pr%2Fwwl-data-ai%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction.yml&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction&amp;author=jupadrao">troubleshooting guide</a> or provide specific feedback by <a id="module-unit-feedback-link" class="has-text-primary" data-bi-name="feedback" href="https://learn.microsoft.com/en-gb/training/support/troubleshooting?uid=learn-wwl.load-data-into-microsoft-fabric-data-warehouse.introduction&amp;documentId=e1378b11-8268-565f-bf64-a52e63962259&amp;versionIndependentDocumentId=bd6d23ec-8f21-b331-9372-050af028a417&amp;platformId=147897eb-2089-fcb0-1f3f-c018888774b0&amp;contentPath=%2FMicrosoftDocs%2Flearn-pr%2Fblob%2Flive%2Flearn-pr%2Fwwl-data-ai%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction.yml&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction&amp;author=jupadrao#report-feedback">reporting an issue</a>.</div>
+      <div id="ms--unit-user-feedback">
+       
+  <!-- feedback section -->
+  <section id="site-user-feedback-footer" class="font-size-sm margin-top-md display-none-print" data-test-id="site-user-feedback-footer" data-bi-name="site-feedback-section">
+   <hr class="hr">
+   <h2 id="ms--feedback" class="title is-3">Feedback</h2>
+   <div class="display-flex flex-wrap-wrap align-items-center">
+    <p class="font-weight-semibold margin-xxs margin-left-none">
+     Was this page helpful?
+    </p>
+    <div class="buttons">
+     <button class="thumb-rating-button like button button-primary button-sm" data-test-id="footer-rating-yes" data-binary-rating-response="rating-yes" type="button" title="This article is helpful" data-bi-name="button-rating-yes" aria-pressed="false">
+      <span class="icon" aria-hidden="true">
+       <span class="docon docon-like"></span>
+      </span>
+      <span>Yes</span>
+     </button>
+     <button class="thumb-rating-button dislike button button-primary button-sm" data-test-id="footer-rating-no" data-binary-rating-response="rating-no" type="button" title="This article is not helpful" data-bi-name="button-rating-no" aria-pressed="false">
+      <span class="icon" aria-hidden="true">
+       <span class="docon docon-dislike"></span>
+      </span>
+      <span>No</span>
+     </button>
+    </div>
+   </div>
+   
+  </section>
+  <!-- end feedback section -->
+ 
+      </div>
+     </section>
+    </div>
+    
+    <!-- Interactive footer area -->
+    
+   </div>
+  
+    </main>
+    <aside id="layout-body-aside" class="layout-body-aside " data-bi-name="aside">
+     
+  <div id="interactive-container" class="interactive-container is-visible-interactive height-full has-body-background-dark display-none display-block-tablet"></div>
+ 
+     </aside> <section id="layout-body-flyout" class="layout-body-flyout " data-bi-name="flyout">
+      <div class="height-full border-left background-color-body-medium" id="ask-learn-flyout"><!---->
+  <article class="chat-container  position-sticky top-0 " data-test-id="chat-ask-learn-flyout" data-chat-container-name="ask-learn-flyout">
+   <div class="chat-container-header">
+    <header class="display-flex justify-content-center align-items-center padding-xs">
+     <h2 class="font-size-md padding-right-xxs"><!---->
+  <div class="font-weight-semibold">
+   <span class="icon" aria-hidden="true">
+    <span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+   </span>
+   <span><!---->Ask Learn<!----></span>
+  </div>
+ <!----></h2>
+     <span class="badge badge-filled badge-sm"><!---->Preview<!----></span>
+     <div class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch">
+      <button class="button button-clear justify-content-flex-start inner-focus" type="button" data-bi-name="reset" data-bi-an="ask-learn-assistant" aria-label="New chat">
+       <span class="icon" aria-hidden="true">
+        <span class="docon docon-chat-add"></span>
+       </span>
+      </button>
+      
+  <button type="button" class="button button-clear inner-focus modal-close" data-flyout-button="close" data-autofocus="" data-bi-an="ask-learn-assistant" data-bi-name="close-chat" aria-label="Close">
+   <span class="icon" aria-hidden="true">
+    <span class="docon docon-navigate-close"></span>
+   </span>
+  </button>
+ 
+     </div>
+    </header>
+   </div>
+   
+  <div class="chat-container-body display-flex flex-direction-column padding-xs padding-right-xxs padding-top-none">
+   
+  <article>
+   <!---->
+     <div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
+      <div class="card-content padding-xxs margin-bottom-none">
+       <div class="display-flex gap-xxs align-items-baseline">
+        <span class="icon font-size-md color-text-subtle" aria-hidden="true">
+         <span class="docon docon-text-align-left"></span>
+        </span>
+        <div>
+         <button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-clarify">
+          <span><!---->Clarify<!----></span>
+         </button>
+         <div class="card-content-description margin-top-none">
+          <p><!---->Tell me more about [concept]<!----></p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    <!---->
+     <div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
+      <div class="card-content padding-xxs margin-bottom-none">
+       <div class="display-flex gap-xxs align-items-baseline">
+        <span class="icon font-size-md color-text-subtle" aria-hidden="true">
+         <span class="docon docon-edit-outline"></span>
+        </span>
+        <div>
+         <button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-define">
+          <span><!---->Define<!----></span>
+         </button>
+         <div class="card-content-description margin-top-none">
+          <p><!---->Tell me the meaning of [term/concept]<!----></p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    <!---->
+     <div class="card border border-radius-lg margin-top-xxs box-shadow-none position-relative background-color-body background-color-body-accent-onhover">
+      <div class="card-content padding-xxs margin-bottom-none">
+       <div class="display-flex gap-xxs align-items-baseline">
+        <span class="icon font-size-md color-text-subtle" aria-hidden="true">
+         <span class="docon docon-chat-bubbles-question"></span>
+        </span>
+        <div>
+         <button type="button" class="button-reset card-title color-text stretched-link text-decoration-none" data-bi-an="ask-learn-assistant" data-bi-name="suggested-prompts-guide">
+          <span><!---->Guide<!----></span>
+         </button>
+         <div class="card-content-description margin-top-none">
+          <p><!---->Tell me how to [concept]<!----></p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    <!---->
+  </article>
+ 
+   
+   <div data-scroll-into-view="chat-messages-container">
+    <!-- Left empty -->
+   </div>
+  </div>
+  
+  <form class="chat-container-form background-color-body-medium padding-xs padding-top-xxs" data-chat-form-container-name="ask-learn-flyout">
+   
+  <div class="display-flex flex-wrap-wrap gap-xxs align-items-center margin-block-xxs">
+   <!-- Suggestion pills -->
+   
+   <!-- Prompt guide -->
+   <details class="popover popover-top popover-left">
+    <summary class="button button-clear button-sm" data-focus-on-cancel="ask-learn-flyout" aria-label="View prompts">
+     <span class="icon" aria-hidden="true">
+      <span class="docon docon-prompt"></span>
+     </span>
+     <span><!---->View prompts<!----></span>
+    </summary>
+    <div class="popover-content width-150 padding-inline-none">
+     <p class="font-weight-semibold margin-bottom-xxs margin-inline-xs">
+      Prompt guide
+     </p>
+     <!---->
+       <button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-clarify">
+        <span class="icon color-text-subtle" aria-hidden="true">
+         <span class="docon docon-text-align-left"></span>
+        </span>
+        <span><!---->Clarify<!----></span>
+       </button>
+      <!---->
+       <button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-define">
+        <span class="icon color-text-subtle" aria-hidden="true">
+         <span class="docon docon-edit-outline"></span>
+        </span>
+        <span><!---->Define<!----></span>
+       </button>
+      <!---->
+       <button class="button button-sm button-clear button-block justify-content-flex-start inner-focus" type="button" data-bi-an="ask-learn-assistant" data-bi-name="view-prompts-guide">
+        <span class="icon color-text-subtle" aria-hidden="true">
+         <span class="docon docon-chat-bubbles-question"></span>
+        </span>
+        <span><!---->Guide<!----></span>
+       </button>
+      <!---->
+    </div>
+   </details>
+  </div>
+ 
+   <div class="textarea-form">
+    
+  <textarea class="textarea" rows="1" data-chat-textarea-container-name="ask-learn-flyout" placeholder="Describe what you&#39;d like to do" aria-description="Maximum 500 characters"></textarea>
+ 
+    <div class="textarea-form-help">
+     <div class="help help-danger"><!----><!----></div>
+    </div>
+    <div class="textarea-form-footer">
+     <div class="textarea-form-footer-left font-size-sm">
+      <span class="color-text-subtle">
+       0/500
+      </span>
+     </div>
+     <div class="textarea-form-footer-right">
+      <button type="button" data-bi-name="submit" data-bi-an="ask-learn-assistant" class="button button-clear button-lg inner-focus " aria-disabled="false" aria-label="Send">
+       <span class="icon" aria-hidden="true">
+        <span class="docon docon-chat-send"></span>
+       </span>
+      </button>
+     </div>
+    </div>
+   </div>
+  </form>
+ 
+  </article>
+ <!----></div>
+     </section> <div class="layout-body-footer is-hidden-interactive" data-bi-name="layout-footer">
+  <footer id="footer" data-test-id="footer" data-bi-name="footer" class="footer-layout has-padding has-default-focus border-top  uhf-container" role="contentinfo">
+   <div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+    
+  <a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-gb%2Ftraining%2Fmodules%2Fload-data-into-microsoft-fabric-data-warehouse%2F1-introduction" data-bi-name="select-locale" class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator" id="" title="" aria-label="Content language selector. Currently set to English (United Kingdom)."><span class="icon" aria-hidden="true"><span class="docon docon-world"></span></span><span class="local-selector-link-text">English (United Kingdom)</span></a>
+ 
+    <div class="ccpa-privacy-link" data-ccpa-privacy-link="">
+  
+  <a data-mscc-ic="false" href="https://aka.ms/yourcaliforniaprivacychoices" data-bi-name="your-privacy-choices" class="button button-sm button-clear flex-shrink-0 external-link-indicator" id="" title="">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" xml:space="preserve" height="16" width="43" aria-hidden="true" focusable="false">
+   <path d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"></path>
+   <path d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"></path>
+   <path d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z" style="fill:#fff"></path>
+   <path d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z" style="fill:#06f"></path>
+  </svg>
+ 
+   <span>Your Privacy Choices</span></a>
+ 
+ </div>
+    <div class="flex-shrink-0">
+  <div class="dropdown has-caret-up">
+   <button data-test-id="theme-selector-button" class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="{{ themeMenuId }}" aria-expanded="false" title="Theme" data-bi-name="theme">
+    <span class="icon">
+     <span class="docon docon-sun" aria-hidden="true"></span>
+    </span>
+    <span>Theme</span>
+    <span class="icon expanded-indicator" aria-hidden="true">
+     <span class="docon docon-chevron-down-light"></span>
+    </span>
+   </button>
+   <div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+    <ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu">
+     <li class="theme display-block">
+      <button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left" data-theme-to="light" aria-pressed="false">
+       <span class="theme-light margin-right-xxs">
+        <span class="theme-selector-icon border display-inline-block has-body-background" aria-hidden="true">
+         <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+          <rect width="22" height="14" class="has-fill-body-background"></rect>
+          <rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+          <rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+          <rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+          <rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+          <rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+         </svg>
+        </span>
+       </span>
+       <span role="menuitem"> Light </span>
+      </button>
+     </li>
+     <li class="theme display-block">
+      <button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left is-selected" data-theme-to="dark" aria-pressed="true">
+       <span class="theme-dark margin-right-xxs">
+        <span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+         <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+          <rect width="22" height="14" class="has-fill-body-background"></rect>
+          <rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+          <rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+          <rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+          <rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+          <rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+         </svg>
+        </span>
+       </span>
+       <span role="menuitem"> Dark </span>
+      </button>
+     </li>
+     <li class="theme display-block">
+      <button class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left" data-theme-to="high-contrast" aria-pressed="false">
+       <span class="theme-high-contrast margin-right-xxs">
+        <span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+         <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+          <rect width="22" height="14" class="has-fill-body-background"></rect>
+          <rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+          <rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+          <rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+          <rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+          <rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+          <rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+         </svg>
+        </span>
+       </span>
+       <span role="menuitem"> High contrast </span>
+      </button>
+     </li>
+    </ul>
+   </div>
+  </div>
+ </div>
+   </div>
+   <ul class="links" data-bi-name="footerlinks">
+    <li class="manage-cookies-holder" hidden=""></li>
+    <li>
+  
+  <a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/previous-versions/" data-bi-name="archivelink" class=" external-link-indicator" id="" title="">Previous Versions</a>
+ 
+ </li> <li>
+  
+  <a data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink" class=" external-link-indicator" id="" title="">Blog</a>
+ 
+ </li> <li>
+  
+  <a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/contribute" data-bi-name="contributorGuide" class=" external-link-indicator" id="" title="">Contribute</a>
+ 
+ </li><li>
+  
+  <a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy" class=" external-link-indicator" id="" title="">Privacy</a>
+ 
+ </li><li>
+  
+  <a data-mscc-ic="false" href="https://learn.microsoft.com/en-gb/legal/termsofuse" data-bi-name="termsofuse" class=" external-link-indicator" id="" title="">Terms of Use</a>
+ 
+ </li><li>
+  
+  <a data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks" class=" external-link-indicator" id="" title="">Trademarks</a>
+ 
+ </li>
+    <li>© Microsoft 2025</li>
+   </ul>
+  </footer>
+ 
+   
+  </div><div role="alert" aria-live="assertive" aria-relevant="additions" aria-atomic="true" class="visually-hidden" id="assertive-live-region"></div><div role="status" aria-live="polite" aria-relevant="additions" aria-atomic="true" class="visually-hidden" id="polite-live-region"></div><script src="./Introduction - Training _ Microsoft Learn_files/at.js" async="" defer="" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous"></script><script src="./Introduction - Training _ Microsoft Learn_files/tex-mml-chtml.js" async="" defer="" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></body></html>
 
 
 
