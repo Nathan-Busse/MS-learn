@@ -1,5 +1,5 @@
 /*
-Module 5 Exercise 2 Query data warehouse tavles part 1: 
+Module 5 Exercise 2 Query data warehouse tables part 1: 
 Create a mew SQL query and run the following code below:
 */
 

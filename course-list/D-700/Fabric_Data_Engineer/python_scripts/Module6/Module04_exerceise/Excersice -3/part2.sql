@@ -1,7 +1,7 @@
 /*
 Module 5 exercise 2 Query data warehouse tables part 2:
 
-Modify the uery as follows: to add a second dimension to the aggregation.
+Modify the query as follows: to add a second dimension to the aggregation.
 */
 
 SELECT  d.[Year] AS CalendarYear,
