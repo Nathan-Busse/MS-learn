@@ -1,5 +1,5 @@
-from pyspark.sql.types import *
-    
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType, FloatType
+
 # Create the schema for the table
 orderSchema = StructType([
     StructField("SalesOrderNumber", StringType()),
@@ -17,4 +17,4 @@ orderSchema = StructType([
 df = spark.read.format("csv").option("header", "true").schema(orderSchema).load("Files/bronze/*.csv")
 
 # Display the first 10 rows of the dataframe to preview your data
-display(df.head(10))
+df.show(10)

@@ -1,4 +1,8 @@
-from pyspark.sql.functions import *
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, split, year, month
+
+# Initialize SparkSession
+spark = SparkSession.builder.getOrCreate()
 
 # Read the new sales data
 df = spark.read.format("csv").option("header","true").load("Files/new_data/*.csv")
@@ -13,4 +17,5 @@ df = df.withColumn("FirstName", split(col("CustomerName"), " ").getItem(0)).with
 df = df["SalesOrderNumber", "SalesOrderLineNumber", "OrderDate", "Year", "Month", "FirstName", "LastName", "EmailAddress", "Item", "Quantity", "UnitPrice", "TaxAmount"]
 
 # Load the data into a table
+table_name = "your_table_name"  # Replace with your actual table name
 df.write.format("delta").mode("append").saveAsTable(table_name)

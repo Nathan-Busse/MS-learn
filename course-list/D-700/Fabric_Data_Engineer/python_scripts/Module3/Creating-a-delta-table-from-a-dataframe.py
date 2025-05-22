@@ -7,6 +7,19 @@
 #Below is the following PySpark code loads a dataframe with data from an existing file, and then saves that dataframe as a delta table:
 
 ##Script
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("DeltaTableExample").getOrCreate()
+
+# Define your schema here, for example:
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+productSchema = StructType([
+    StructField("product_id", StringType(), True),
+    StructField("product_name", StringType(), True),
+    StructField("category", StringType(), True),
+    StructField("price", IntegerType(), True)
+])
+
 # Load a dataframe from a CSV file
 df = spark.read.load('Files/data/product-data.csv',
     format='csv',
@@ -31,6 +44,7 @@ df.write.format("delta").mode("overwrite").saveAsTable("products")
 # The above code uses the Spark SQL API to query the "products" table and limit the result to 10 rows.
 # The result is then displayed in a tabular format using the display() function.
 # The delta table can be queried using SQL or DataFrame API.
+from pyspark.sql import SparkSession
 
-spark = ... # Define your SparkSession here
-productSchema = ... # Define your schema here
+spark = SparkSession.builder.appName("DeltaTableExample").getOrCreate()
+# productSchema = ... # Define your schema here
