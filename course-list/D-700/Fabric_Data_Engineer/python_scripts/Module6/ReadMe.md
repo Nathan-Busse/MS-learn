@@ -19,7 +19,8 @@ The process of building a modern data warehouse typically consists of:
 
 Microsoft Fabric enables data engineers and analysts to ingest, store, transform, and visualize data all in one tool with both a low-code and traditional experience.
 
-# Clone tables
+## Clone tables
+
 You can create zero-copy table clones with minimal storage costs in a data warehouse. These clones are essentially replicas of tables created by copying the metadata while still referencing the same data files in OneLake. This means that the underlying data stored as parquet files is not duplicated, which helps in saving storage costs.
 
 Table clones are particularly useful in several scenarios.
@@ -47,3 +48,27 @@ Load the fact tables from the fact data in the staging tables, looking up the ap
 Perform post-load optimization by updating indexes and table distribution statistics.
 If you have tables in the lakehouse, and you want to be able to query it in your warehouse - but not make changes - with a Fabric data warehouse, you don't have to copy data from the lakehouse to the data warehouse. You can query data in the lakehouse directly from the data warehouse using cross-database querying.
 
+*IMPORTANT*
+Working with tables in the Fabric data warehouse currently has some limitations. See [Tables in data warehousing in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/tables) for more information.
+
+## Query and transform data
+
+Now that you know how to implement a data warehouse in Fabric, let's prepare the data for analytics.
+
+There are two ways to query data from your data warehouse. The Visual query editor provides a no-code, drag-and-drop experience to create your queries. If you're comfortable with T-SQL, you may prefer to use the SQL query editor to write your queries. In both cases, you can create tables, views, and stored procedures to query data in the data warehouse and Lakehouse.
+
+There's also a SQL analytics endpoint, where you can connect from any tool.
+
+To create a new query, use the New SQL query button in the menu. You can author and run your T-SQL queries here. In the example below we're creating a new view for analysts to use for reporting in Power BI.
+![create-view.png](https://learn.microsoft.com/en-gb/training/wwl/get-started-data-warehouse/media/create-view.png)
+
+# Query data using the Visual query editor 
+The visual query editor provides an experience similar to the [Power Query online diagram view](https://learn.microsoft.com/en-us/power-query/diagram-view)
+Use the *_New visual query_* button to create a new query.
+
+Drag a table from your data warehouse onto the canvas to get started. You can then use the _*Transform*_ menu at the top of the screen to add:
+- columns
+- filters
+- other transformations to your  query. 
+You can also use the ( *+* ) button on the visual itself to perform similar transformations:
+![visual-query.png](https://learn.microsoft.com/en-gb/training/wwl/get-started-data-warehouse/media/visual-query.png)
