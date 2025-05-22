@@ -18,3 +18,32 @@ The process of building a modern data warehouse typically consists of:
 - *Data analysis and delivery:* *Analyzing the data to gain insights and delivering those insights to the business.*
 
 Microsoft Fabric enables data engineers and analysts to ingest, store, transform, and visualize data all in one tool with both a low-code and traditional experience.
+
+# Clone tables
+You can create zero-copy table clones with minimal storage costs in a data warehouse. These clones are essentially replicas of tables created by copying the metadata while still referencing the same data files in OneLake. This means that the underlying data stored as parquet files is not duplicated, which helps in saving storage costs.
+
+Table clones are particularly useful in several scenarios.
+
+Development and testing: Clones allow developers and testers to create copies of tables in lower environments, facilitating development, debugging, testing, and validation processes.
+Data recovery: In the event of a failed release or data corruption, table clones can retain the previous state of data, enabling data recovery.
+Historical reporting: They help create historical reports that reflect the state of data at specific points in time and preserve data at specific business milestones.
+You can create a table clone using the CREATE TABLE AS CLONE OF T-SQL command.
+
+To learn more about table clones, see Tutorial: Clone a table using T-SQL in Microsoft Fabric.
+
+Table considerations
+After creating tables in a data warehouse, it's important to consider the process of loading data into those tables. A common approach is to use staging tables. In Fabric, you can use T-SQL commands to load data from files into staging tables in the data warehouse.
+
+Staging tables are temporary tables that can be used to perform data cleansing, data transformations, and data validation. You can also use staging tables to load data from multiple sources into a single destination table.
+
+Usually, data loading is performed as a periodic batch process in which inserts and updates to the data warehouse are coordinated to occur at a regular interval (for example, daily, weekly, or monthly).
+
+Generally, you should implement a data warehouse load process that performs tasks in the following order:
+
+Ingest the new data to be loaded into a data lake, applying pre-load cleansing or transformations as required.
+Load the data from files into staging tables in the relational data warehouse.
+Load the dimension tables from the dimension data in the staging tables, updating existing rows or inserting new rows and generating surrogate key values as necessary.
+Load the fact tables from the fact data in the staging tables, looking up the appropriate surrogate keys for related dimensions.
+Perform post-load optimization by updating indexes and table distribution statistics.
+If you have tables in the lakehouse, and you want to be able to query it in your warehouse - but not make changes - with a Fabric data warehouse, you don't have to copy data from the lakehouse to the data warehouse. You can query data in the lakehouse directly from the data warehouse using cross-database querying.
+
