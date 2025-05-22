@@ -87,3 +87,10 @@ You can easily switch between the Data, Query, and Model view Fabric using the m
 # Build relationships
 
 Relationships allow you to connect tables in the semantic model. Create relationships between tables in your data warehouse using a click-and-drag interface in Fabric in the Model view.
+
+[Module 5 Assessment page](https://learn.microsoft.com/en-gb/training/modules/get-started-data-warehouse/8-knowledge-check)
+
+[Module 5 Victory](https://learn.microsoft.com/api/achievements/share/en-gb/NathanBusse-2561/XQ4K6JKY?sharingId=A06D9EE30C453065)
+
+# Summary
+In this module, you learned about data warehouses and dimensional modeling, created a data warehouse, loaded, queried, and visualized data, and described semantic models and how they're used for downstream reporting.
